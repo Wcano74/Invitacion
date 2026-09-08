@@ -1046,13 +1046,6 @@
       outline-offset: 2px;
     }
 
-    #guests-field {
-      display: none;
-    }
-
-    #guests-field.show {
-      display: block;
-    }
 
     .submit-btn {
       width: 100%;
@@ -1586,10 +1579,6 @@
               </div>
             </div>
 
-            <div class="field" id="guests-field">
-              <label for="guests">Número de acompañantes</label>
-              <input type="number" id="guests" name="guests" min="0" max="6" value="0">
-            </div>
 
             <button type="submit" class="submit-btn">Confirmar asistencia</button>
             <div class="form-note">Al confirmar se abrirá WhatsApp con tu respuesta lista para enviar. También puedes
@@ -1787,15 +1776,12 @@
     // RSVP interactivity
     var pillYes = document.getElementById('pillYes');
     var pillNo = document.getElementById('pillNo');
-    var guestsField = document.getElementById('guests-field');
     var attending = null;
 
     function setAttending(val) {
       attending = val;
       pillYes.setAttribute('aria-pressed', val === 'yes');
       pillNo.setAttribute('aria-pressed', val === 'no');
-      if (val === 'yes') { guestsField.classList.add('show'); }
-      else { guestsField.classList.remove('show'); }
     }
     pillYes.addEventListener('click', function () { setAttending('yes'); });
     pillNo.addEventListener('click', function () { setAttending('no'); });
@@ -1817,11 +1803,10 @@
       }
       nameError.classList.remove('show');
 
-      var guests = document.getElementById('guests').value || '0';
       var att = attending === 'no' ? 'no' : 'yes';
 
       var message = att === 'yes'
-        ? 'Hola, soy ' + name + '. Confirmo mi asistencia a la celebración de graduación de Yessenia el 19 de septiembre, Salón Jaguar. Acompañantes: ' + guests + '.'
+        ? 'Hola, soy ' + name + '. Confirmo mi asistencia a la celebración de graduación de Yessenia el 19 de septiembre, Salón Jaguar.'
         : 'Hola, soy ' + name + '. Lamentablemente no podré asistir a la celebración de graduación de Yessenia el 19 de septiembre.';
 
       var waLink = 'https://wa.me/50258707683?text=' + encodeURIComponent(message);
