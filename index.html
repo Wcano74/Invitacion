@@ -1555,6 +1555,22 @@
           <div class="rsvp-deadline">Por favor confirma antes del 15 de septiembre</div>
           <p class="lede">Tu lugar en la mesa nos espera — solo necesitamos saber si vienes.</p>
 
+          <div id="nota-adultos"
+            style="display: none; margin-top: 24px; padding: 16px 20px; border: 1px solid rgba(192, 99, 115, 0.5); background: rgba(110, 20, 35, 0.15); border-radius: 2px;">
+            <div
+              style="font-family: 'EB Garamond', serif; font-variant: small-caps; letter-spacing: 0.1em; font-size: 14px; color: var(--vino-pale); margin-bottom: 6px;">
+              Nota Importante</div>
+            <p
+              style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--hueso); line-height: 1.4;">
+              Para disfrutar plenamente de la velada, respetuosamente informamos que la recepción será
+              <strong>exclusivamente para adultos</strong>.
+              <br>
+              <span
+                style="font-size: 15px; color: var(--hueso-dim); font-style: italic; display: inline-block; margin-top: 4px;">Agradecemos
+                su amable comprensión.</span>
+            </p>
+          </div>
+
           <form id="rsvpForm" novalidate>
             <div class="field">
               <label for="fullname">Nombre completo</label>
@@ -1821,6 +1837,15 @@
         thanksBody.textContent = 'Lamentamos que no puedas acompañarnos, pero agradecemos mucho tu respuesta.';
       }
     });
+
+    // Mostrar sección de adultos si la URL tiene el parámetro vip
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('vip')) {
+      var notaAdultos = document.getElementById('nota-adultos');
+      if (notaAdultos) {
+        notaAdultos.style.display = 'block';
+      }
+    }
   </script>
 
 </body>
