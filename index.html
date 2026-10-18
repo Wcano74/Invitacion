@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <title>Pilly &amp; Anabel — Nos casamos</title>
+  <title>Pilly &amp; Anabel — Nuestra boda</title>
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Nos casamos — Pilly &amp; Anabel · 21 de noviembre de 2026">
+  <meta property="og:title" content="Nuestra boda — Pilly &amp; Anabel · 21 de noviembre de 2026">
   <meta property="og:description" content="Acompáñanos a celebrar nuestra boda en Hueytown, Alabama.">
-  <meta property="og:image" content="https://wcano74.github.io/Invitacion/preview.png">
+  <meta property="og:image" content="https://wcano74.github.io/Invitacion/preview.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://wcano74.github.io/Invitacion/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#1c1c1f">
+  <meta name="theme-color" content="#f8e4e8">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -34,8 +34,10 @@
       --rosa-soft: #d293a2;
       --rosa-pale: #f6e1e5;
       --marfil: #faf6f1;
-      --marfil-dim: #6b6a6e;
-      --max: 560px;
+      --papel: #fbf8f3;
+      --fondo: #e4e1dd;
+      --texto-dim: #6b6a6e;
+      --max: 480px;
       --ease-flow: cubic-bezier(.16, 1, .3, 1);
     }
 
@@ -50,11 +52,11 @@
     }
 
     body {
-      background: var(--marfil);
+      background: var(--fondo);
       color: var(--carbon);
       font-family: 'EB Garamond', serif;
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -64,17 +66,16 @@
       height: 100vh;
     }
 
-    h1,
-    h2,
-    .display {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      margin: 0;
+    .script {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
     }
 
-    .script {
-      font-family: 'Pinyon Script', cursive;
-      font-weight: 400;
+    .sc {
+      font-family: 'Cormorant Garamond', serif;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      letter-spacing: .16em;
     }
 
     .noise-layer {
@@ -87,56 +88,10 @@
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     }
 
-    .rule {
-      width: 56px;
-      height: 1px;
-      background: var(--rosa-soft);
-      margin: 0 auto;
-      opacity: .9;
-    }
-
-    svg.branch-defs {
+    svg.defs {
       position: absolute;
       width: 0;
       height: 0;
-    }
-
-    .branch {
-      position: absolute;
-      width: 150px;
-      height: 170px;
-      opacity: .95;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .branch.tl {
-      top: -6px;
-      left: -14px;
-    }
-
-    .branch.tr {
-      top: -6px;
-      right: -14px;
-      transform: scaleX(-1);
-    }
-
-    .branch.bl {
-      bottom: -6px;
-      left: -14px;
-      transform: scaleY(-1);
-    }
-
-    .branch.br {
-      bottom: -6px;
-      right: -14px;
-      transform: scale(-1, -1);
-    }
-
-    .branch.small {
-      width: 96px;
-      height: 110px;
-      opacity: .85;
     }
 
     /* ========== SEAL OVERLAY ========== */
@@ -145,12 +100,12 @@
       inset: 0;
       z-index: 50;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(ellipse at 50% 30%, rgba(90, 70, 78, .75) 0%, var(--carbon) 55%, var(--carbon-deep) 100%);
+      background: var(--papel);
+      isolation: isolate;
       transition: opacity 1.2s cubic-bezier(.4, 0, .2, 1), visibility 1.2s ease;
-      overflow: hidden;
-      color: var(--marfil);
+      overflow-x: hidden;
+      overflow-y: auto;
+      color: var(--carbon);
     }
 
     #seal-overlay.hidden {
@@ -159,13 +114,12 @@
       pointer-events: none;
     }
 
-    /* ambient floating petals */
     .dust {
       position: absolute;
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(232, 185, 195, .8) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(190, 151, 81, .72) 0%, transparent 72%);
       opacity: 0;
       animation: dustFloat linear infinite;
     }
@@ -194,18 +148,31 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(10, 10, 12, .6) 100%);
+      opacity: .05;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
       pointer-events: none;
       z-index: 0;
     }
 
+    #seal-overlay::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(173, 137, 75, .30);
+      outline: 1px solid rgba(173, 137, 75, .12);
+      outline-offset: 5px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     .seal-glow {
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: min(430px, 95vw);
+      height: min(430px, 95vw);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(232, 185, 195, .22) 0%, transparent 70%);
-      animation: glowPulse 3.5s ease-in-out infinite;
+      background: radial-gradient(circle, rgba(207, 166, 99, .19) 0%, rgba(255, 255, 255, .14) 36%, transparent 70%);
+      animation: glowPulse 4.8s ease-in-out infinite;
       pointer-events: none;
       z-index: 1;
     }
@@ -225,33 +192,35 @@
     }
 
     .seal-wrap {
+      margin: auto;
       text-align: center;
-      padding: 0 24px;
+      padding: 30px 24px;
       position: relative;
       z-index: 2;
     }
 
-    .cap-glyph {
+    .rings-glyph {
       display: block;
-      margin: 0 auto 20px;
-      filter: drop-shadow(0 2px 8px rgba(232, 185, 195, .35));
+      margin: 0 auto 17px;
+      filter: drop-shadow(0 3px 7px rgba(164, 135, 88, .18));
+      animation: titleArrive 1.1s cubic-bezier(.16, 1, .3, 1) both;
     }
 
     .invite-script {
-      font-size: 40px;
-      color: var(--marfil);
+      font-size: clamp(39px, 7vw, 48px);
+      color: #785d43;
       line-height: 1;
-      margin-bottom: 4px;
-      text-shadow: 0 2px 18px rgba(232, 185, 195, .35);
+      margin-bottom: 6px;
+      text-shadow: 0 2px 22px rgba(255, 255, 255, .85);
+      animation: titleArrive 1s .08s cubic-bezier(.16, 1, .3, 1) both;
     }
 
     .invite-kicker {
-      font-family: 'EB Garamond', serif;
-      font-variant: small-caps;
-      letter-spacing: .16em;
       font-size: 13px;
-      color: var(--rosa);
-      margin-bottom: 34px;
+      letter-spacing: .24em;
+      color: #967650;
+      margin-bottom: 24px;
+      animation: titleArrive 1s .18s cubic-bezier(.16, 1, .3, 1) both;
     }
 
     .seal-btn {
@@ -261,145 +230,305 @@
       cursor: pointer;
       display: inline-block;
       transition: transform .3s ease;
+      outline: none;
     }
 
     .seal-btn:hover {
-      transform: scale(1.04);
+      transform: scale(1.02);
     }
 
     .seal-btn:active {
-      transform: scale(.97);
+      transform: scale(.98);
     }
 
-    /* ---- ENVELOPE ---- */
+    /* ---- 4-FLAP LUXURY LACE ENVELOPE ---- */
     .envelope {
-      width: 190px;
-      height: 130px;
+      width: min(310px, 82vw);
+      width: clamp(190px, calc((100vh - 300px) * .72), min(310px, 82vw));
+      width: clamp(190px, calc((100svh - 300px) * .72), min(310px, 82vw));
+      aspect-ratio: 310 / 430;
+      height: auto;
       margin: 0 auto;
       position: relative;
-      perspective: 600px;
+      perspective: 1400px;
+      transform-style: preserve-3d;
+      filter: drop-shadow(0 18px 24px rgba(120, 82, 70, .18));
+      transform-origin: 50% 55%;
+      animation: envelopeArrive 1.25s .18s cubic-bezier(.16, 1, .3, 1) both, envelopeFloat 5.8s 1.6s ease-in-out infinite;
     }
 
-    .env-body {
+    .envelope.opening {
+      animation: none;
+    }
+
+    @keyframes envelopeArrive {
+      from { opacity: 0; transform: translateY(24px) scale(.94) rotate(-1.2deg); }
+      to { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+    }
+
+    @keyframes envelopeFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -7px; }
+    }
+
+    @keyframes titleArrive {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-height: 720px) {
+      .seal-wrap {
+        padding-top: 26px;
+        padding-bottom: 22px;
+      }
+      .rings-glyph {
+        margin-bottom: 10px;
+      }
+      .invite-script {
+        font-size: 38px;
+      }
+      .invite-kicker {
+        margin-bottom: 14px;
+      }
+    }
+
+    /* Envelope Body / Base Plate */
+    .env-base {
       position: absolute;
       inset: 0;
-      background: linear-gradient(170deg, #f7f2ec 0%, #ece6df 45%, #ddd7d0 100%);
-      border: 1px solid rgba(185, 188, 194, .6);
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, .55),
-        0 2px 8px rgba(0, 0, 0, .35),
-        inset 0 1px 0 rgba(255, 255, 255, .6);
+      background: linear-gradient(150deg, #efe5d4 0%, #f6efe3 50%, #e8dcc8 100%);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: inset 0 0 28px rgba(120, 90, 60, .18), inset 0 0 0 1px rgba(255, 255, 255, .5);
+      z-index: 0;
+    }
+
+    .paper-texture {
+      position: absolute;
+      inset: 0;
+      opacity: 0.055;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    /* Inside Invitation Card */
+    .env-card-inside {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      background: #fffdf9;
+      background-image: 
+        radial-gradient(circle at 50% 30%, #ffffff 0%, #faf5ec 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/></svg>");
+      border-radius: 3px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      border: 1px solid rgba(198, 164, 110, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 14px;
+      transition: transform 1.2s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 1.2s ease;
+      z-index: 1;
+      transform-origin: center center;
+    }
+
+    .card-border-frame {
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(198, 164, 110, 0.45);
+      pointer-events: none;
+    }
+
+    .card-border-inner {
+      position: absolute;
+      inset: 11px;
+      border: 0.5px solid rgba(198, 164, 110, 0.25);
+      pointer-events: none;
+    }
+
+    .card-monogram {
+      font-size: 26px;
+      color: #9d5f6f;
+      letter-spacing: 3px;
+      margin-bottom: 4px;
+      font-weight: 600;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .card-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: #2b2b2e;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .card-names {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      color: #4a4a4e;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .card-date {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #997843;
+      border-top: 1px solid rgba(198, 164, 110, 0.35);
+      border-bottom: 1px solid rgba(198, 164, 110, 0.35);
+      padding: 3px 12px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Flap 3D Containers */
+    .flap-container {
+      position: absolute;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .flap-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
       overflow: hidden;
     }
 
-    .env-body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-      opacity: .06;
-      mix-blend-mode: multiply;
+    .flap-face svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
-    .env-body::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(138deg, transparent 48.6%, rgba(138, 141, 147, .3) 49%, rgba(138, 141, 147, .3) 51%, transparent 51.4%),
-        linear-gradient(42deg, transparent 48.6%, rgba(138, 141, 147, .3) 49%, rgba(138, 141, 147, .3) 51%, transparent 51.4%);
-    }
-
-    .env-card {
-      position: absolute;
-      top: 6px;
-      left: 12px;
-      right: 12px;
-      height: 40px;
-      background: linear-gradient(180deg, rgba(246, 225, 229, .7) 0%, transparent 100%);
-      border-top: 1px solid rgba(210, 147, 162, .4);
-      border-left: 1px solid rgba(210, 147, 162, .2);
-      border-right: 1px solid rgba(210, 147, 162, .2);
-    }
-
-    .env-flap {
-      position: absolute;
+    /* TOP FLAP */
+    .flap-top-wrap {
       top: 0;
-      left: -1px;
-      right: -1px;
-      height: 66px;
+      left: 0;
+      width: 100%;
+      height: 51.2%;
       transform-origin: top center;
-      transform: rotateX(0deg);
-      transition: transform 1s cubic-bezier(.4, 0, .2, 1);
+      transition: transform 1.25s cubic-bezier(0.25, 1, 0.35, 1);
       z-index: 3;
     }
 
-    .env-flap-face {
+    .flap-top-wrap .flap-back {
+      transform: rotateX(180deg);
+    }
+
+    /* BOTTOM FLAP */
+    .flap-bottom-wrap {
+      bottom: 0;
+      left: 0;
       width: 100%;
-      height: 100%;
-      position: absolute;
+      height: 51.2%;
+      transform-origin: bottom center;
+      transition: transform 1.25s cubic-bezier(0.25, 1, 0.35, 1);
+      z-index: 3;
+    }
+
+    .flap-bottom-wrap .flap-back {
+      transform: rotateX(180deg);
+    }
+
+    /* LEFT LACE FLAP */
+    .flap-left-wrap {
       top: 0;
       left: 0;
+      width: 59.7%;
+      height: 100%;
+      transform-origin: left center;
+      transition: transform 1.35s cubic-bezier(0.25, 1, 0.35, 1);
+      z-index: 5;
     }
 
-    .env-flap-front {
-      background: linear-gradient(180deg, #f3eee8 0%, #e4ded7 100%);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    .flap-left-wrap .flap-back {
+      transform: rotateY(180deg);
     }
 
-    .env-flap-front::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to bottom right, transparent 48%, rgba(138, 141, 147, .3) 49%, rgba(138, 141, 147, .3) 51%, transparent 52%);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    /* RIGHT LACE FLAP */
+    .flap-right-wrap {
+      top: 0;
+      right: 0;
+      width: 59.7%;
+      height: 100%;
+      transform-origin: right center;
+      transition: transform 1.35s cubic-bezier(0.25, 1, 0.35, 1);
+      z-index: 5;
     }
 
-    .env-flap-back {
-      background: linear-gradient(180deg, #d9d3cc 0%, #efe9e3 100%);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      transform: rotateX(180deg);
-      backface-visibility: hidden;
+    .flap-right-wrap .flap-back {
+      transform: rotateY(180deg);
     }
 
-    .envelope.opening .env-flap {
-      transform: rotateX(-175deg);
+    /* OPEN STATE ANIMATIONS */
+    .envelope.opening .flap-left-wrap {
+      transform: rotateY(-165deg);
+      transition-delay: 0.25s;
+    }
+
+    .envelope.opening .flap-right-wrap {
+      transform: rotateY(165deg);
+      transition-delay: 0.25s;
+    }
+
+    .envelope.opening .flap-top-wrap {
+      transform: rotateX(165deg);
+      transition-delay: 0.5s;
+    }
+
+    .envelope.opening .flap-bottom-wrap {
+      transform: rotateX(-165deg);
+      transition-delay: 0.5s;
+    }
+
+    .envelope.opening .env-card-inside {
+      transform: translateZ(28px) scale(1.03);
+      box-shadow: 0 20px 45px rgba(35, 30, 20, 0.25);
+      transition-delay: 1.05s;
     }
 
     /* ---- WAX SEAL ---- */
     .seal {
-      width: 84px;
-      height: 84px;
+      width: 82px;
+      height: 82px;
       border-radius: 50%;
       position: absolute;
+      top: 50%;
       left: 50%;
-      bottom: -42px;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%) translateZ(10px);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 5;
+      z-index: 10;
       cursor: pointer;
-      transition: transform .5s cubic-bezier(.34, 1.56, .64, 1), box-shadow .5s ease;
+      transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), opacity .5s ease, box-shadow .4s ease;
+      filter: drop-shadow(0 8px 13px rgba(115, 78, 31, .28));
     }
 
     .seal-wax {
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: radial-gradient(circle at 32% 26%,
-          #fbe3e8 0%,
-          var(--rosa) 24%,
-          var(--rosa-soft) 52%,
-          #b97888 80%,
-          var(--rosa-deep) 100%);
+      background: radial-gradient(circle at 32% 24%,
+          #fff0b9 0%,
+          #d9b66a 22%,
+          #b58a3e 52%,
+          #f2d98c 72%,
+          #9c7330 100%);
       box-shadow:
-        0 0 0 1px rgba(246, 225, 229, .5),
-        0 6px 20px rgba(0, 0, 0, .6),
-        0 16px 40px rgba(0, 0, 0, .45),
-        inset 0 2px 4px rgba(255, 255, 255, .35),
-        inset 0 -3px 6px rgba(80, 40, 50, .35);
+        0 0 0 1px rgba(255, 246, 204, .95),
+        0 0 0 4px rgba(177, 133, 48, .22),
+        0 7px 16px rgba(111, 78, 35, .23),
+        inset 0 2px 5px rgba(255, 255, 255, .75),
+        inset 0 -5px 9px rgba(104, 72, 26, .30);
     }
 
     .seal-wax::before {
@@ -408,11 +537,11 @@
       inset: -4px;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 25%,
-          rgba(232, 185, 195, .7) 0%,
-          rgba(210, 147, 162, .35) 50%,
+          rgba(255, 249, 207, .68) 0%,
+          rgba(215, 177, 92, .26) 50%,
           transparent 72%);
-      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='92' height='92'><filter id='w'><feTurbulence type='turbulence' baseFrequency='0.06' numOctaves='4' seed='3'/><feDisplacementMap in='SourceGraphic' scale='8'/></filter><circle cx='46' cy='46' r='42' filter='url(%23w)' fill='white'/></svg>");
-      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='92' height='92'><filter id='w'><feTurbulence type='turbulence' baseFrequency='0.06' numOctaves='4' seed='3'/><feDisplacementMap in='SourceGraphic' scale='8'/></filter><circle cx='46' cy='46' r='42' filter='url(%23w)' fill='white'/></svg>");
+      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='92' height='92'><filter id='w'><feTurbulence type='turbulence' baseFrequency='0.06' numOctaves='4' seed='3'/></filter><circle cx='46' cy='46' r='42' filter='url(%23w)' fill='white'/></svg>");
+      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='92' height='92'><filter id='w'><feTurbulence type='turbulence' baseFrequency='0.06' numOctaves='4' seed='3'/></filter><circle cx='46' cy='46' r='42' filter='url(%23w)' fill='white'/></svg>");
     }
 
     .seal-wax::after {
@@ -420,37 +549,28 @@
       position: absolute;
       inset: 8px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, .45);
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, .25), 0 1px 1px rgba(80, 40, 50, .25);
+      border: 1.5px solid rgba(255, 247, 204, .88);
+      box-shadow: inset 0 1px 2px rgba(255, 255, 229, .48), 0 1px 1px rgba(91, 61, 19, .28);
     }
 
     .seal-ring {
       position: absolute;
       inset: 14px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, .3);
+      border: 1px solid rgba(255, 239, 187, .9);
     }
 
     .seal-shimmer {
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .22) 45%, rgba(255, 255, 255, .1) 55%, transparent 70%);
-      animation: shimmerSweep 4s ease-in-out infinite;
+      background: linear-gradient(115deg, transparent 27%, rgba(255, 255, 230, .10) 39%, rgba(255, 255, 232, .58) 48%, rgba(255, 255, 230, .18) 56%, transparent 71%);
+      animation: shimmerSweep 5.5s ease-in-out infinite;
     }
 
     @keyframes shimmerSweep {
-
-      0%,
-      100% {
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-
-      50% {
-        opacity: 1;
-        transform: translateX(20px);
-      }
+      0%, 100% { transform: translateX(-30%); opacity: 0; }
+      50% { transform: translateX(30%); opacity: 1; }
     }
 
     .seal-content {
@@ -461,21 +581,21 @@
 
     .seal-mono {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 24px;
-      color: #5a3540;
+      color: #765727;
       line-height: 1;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, .45);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, .7);
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: center;
-      gap: 2px;
+      gap: 6px;
     }
 
-    .seal-mono .amp {
-      font-family: 'Pinyon Script', cursive;
-      font-weight: 400;
-      font-size: 20px;
+    .seal-mono .bar {
+      width: 1px;
+      height: 20px;
+      background: rgba(118, 87, 39, .65);
     }
 
     .seal-sub {
@@ -483,39 +603,40 @@
       margin-top: 5px;
       font-size: 7px;
       letter-spacing: .3em;
-      color: rgba(90, 53, 64, .8);
+      color: rgba(99, 68, 23, .94);
     }
 
     .seal:hover {
-      transform: translateX(-50%) scale(1.08);
-      box-shadow: 0 0 40px rgba(232, 185, 195, .45);
+      transform: translate(-50%, -50%) translateZ(14px) scale(1.06);
+      filter: drop-shadow(0 9px 20px rgba(150, 110, 45, .36));
     }
 
     .seal.pressed {
-      transform: translateX(-50%) scale(.92);
+      transform: translate(-50%, -50%) translateZ(2px) scale(.92);
       transition: transform .15s ease;
     }
 
     .seal.pressed .seal-wax {
       box-shadow:
-        0 0 0 1px rgba(246, 225, 229, .6),
-        0 2px 8px rgba(0, 0, 0, .5),
-        inset 0 3px 8px rgba(80, 40, 50, .45);
+        0 0 0 1px rgba(255, 246, 204, .95),
+        0 2px 8px rgba(111, 78, 35, .4),
+        inset 0 3px 8px rgba(104, 72, 26, .45);
     }
 
     .seal.breaking {
-      transition: transform .8s cubic-bezier(.4, 0, .2, 1), opacity .8s ease;
-      transform: translateX(-50%) scale(1.3);
+      transition: transform .7s cubic-bezier(.2, .8, .3, 1), opacity .7s ease;
+      transform: translate(-50%, -50%) translateZ(60px) scale(1.35);
       opacity: 0;
+      pointer-events: none;
     }
 
     .seal-hint {
-      margin-top: 56px;
+      margin-top: 24px;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 16px;
-      color: var(--plata);
-      animation: hintPulse 2.5s ease-in-out infinite;
+      color: #8a6f5a;
+      animation: hintPulse 3.2s ease-in-out infinite;
     }
 
     @keyframes hintPulse {
@@ -534,9 +655,9 @@
       display: inline-block;
       margin-top: 14px;
       font-size: 12px;
-      color: var(--plata);
+      color: #967650;
       text-decoration: underline;
-      text-decoration-color: rgba(185, 188, 194, .3);
+      text-decoration-color: rgba(150, 118, 80, .4);
       background: none;
       border: none;
       cursor: pointer;
@@ -545,16 +666,15 @@
     }
 
     .seal-skip:hover {
-      color: var(--marfil);
+      color: #5e4630;
     }
 
-    /* ---- SEAL BREAK PARTICLES ---- */
     .wax-particle {
       position: fixed;
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--rosa);
+      background: #d9b66a;
       z-index: 62;
       pointer-events: none;
       opacity: 0;
@@ -576,18 +696,17 @@
       }
     }
 
-    /* silver flash on open */
-    .golden-flash {
+    .open-flash {
       position: fixed;
       inset: 0;
       z-index: 55;
       pointer-events: none;
-      background: radial-gradient(circle at 50% 50%, rgba(246, 225, 229, .35) 0%, transparent 60%);
+      background: radial-gradient(circle at 50% 50%, rgba(255, 240, 200, .38) 0%, transparent 60%);
       opacity: 0;
       transition: opacity .6s ease;
     }
 
-    .golden-flash.show {
+    .open-flash.show {
       opacity: 1;
     }
 
@@ -607,256 +726,162 @@
       }
     }
 
+    /* ========== TARJETA ========== */
     main {
       max-width: var(--max);
       margin: 0 auto;
       position: relative;
       z-index: 2;
-    }
-
-    .block {
-      padding: 0 28px;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero-block {
-      padding-top: 40px;
-      padding-bottom: 56px;
-      position: relative;
+      background: var(--papel);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .03), 0 20px 60px rgba(28, 28, 31, .12);
       overflow: hidden;
     }
 
-    .hero-glow {
-      position: absolute;
-      inset: -40px 0 auto 0;
-      height: 360px;
-      z-index: 0;
-      pointer-events: none;
-      background: radial-gradient(ellipse at 50% 0%, rgba(232, 185, 195, .45) 0%, rgba(232, 185, 195, 0) 70%);
+    .sec {
+      position: relative;
+      text-align: center;
+      padding: 0 32px;
     }
 
-    .hero-block>* {
-      position: relative;
+    .sprig {
+      position: absolute;
+      pointer-events: none;
       z-index: 1;
     }
 
-    .hero-el {
-      opacity: 0;
-      transform: translateY(22px);
-      filter: blur(5px);
-      transition: opacity 1s var(--ease-flow), transform 1s var(--ease-flow), filter 1s var(--ease-flow);
-    }
-
-    .hero-el.in {
-      opacity: 1;
-      transform: none;
-      filter: blur(0);
-    }
-
-    .kicker-script {
-      font-size: 32px;
-      color: var(--rosa-deep);
-      margin-bottom: 4px;
-    }
-
-    .name {
-      font-size: 58px;
-      line-height: 1.05;
-      color: var(--carbon);
-      letter-spacing: .01em;
-      margin-top: 8px;
-    }
-
-    .name .amp {
-      display: block;
-      font-family: 'Pinyon Script', cursive;
-      font-size: 44px;
-      color: var(--rosa-soft);
-      line-height: 1.1;
-    }
-
-    .titles {
-      margin-top: 18px;
-      font-family: 'EB Garamond', serif;
-      font-variant: small-caps;
-      letter-spacing: .08em;
-      font-size: 16px;
-      color: var(--marfil-dim);
-    }
-
-    .titles .date-line {
-      display: block;
-      margin-top: 10px;
-      font-family: 'Cormorant Garamond', serif;
-      font-variant: normal;
-      font-size: 22px;
-      letter-spacing: .3em;
-      color: var(--carbon);
-    }
-
-    .countdown {
+    /* separador con corazón */
+    .divider {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-top: 32px;
+      gap: 10px;
+      margin: 18px auto 0;
+      width: 150px;
     }
 
-    .cbox {
-      width: 64px;
-      padding: 12px 0 10px;
-      border: 1px solid var(--plata);
-      background: rgba(255, 255, 255, .6);
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--plata);
     }
 
-    .cbox .num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      color: var(--carbon);
-      line-height: 1;
+    .divider svg {
+      width: 9px;
+      height: 9px;
+      flex: none;
     }
 
-    .cbox .lab {
-      margin-top: 5px;
-      font-size: 9px;
-      letter-spacing: .18em;
-      font-variant: small-caps;
-      color: var(--rosa-deep);
+    /* ----- PORTADA ----- */
+    .portada {
+      padding-top: 138px;
+      padding-bottom: 30px;
     }
 
-    section.block {
-      margin-top: 80px;
+    .portada .sprig.tl {
+      top: -8px;
+      left: -18px;
+      width: 180px;
     }
 
-    section.block.tight {
-      margin-top: 56px;
+    .portada .sprig.tr {
+      top: -10px;
+      right: -22px;
+      width: 150px;
+      transform: scaleX(-1) rotate(8deg);
     }
 
-    .message {
+    .verso {
+      max-width: 250px;
+      margin: 0 auto;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 21px;
-      line-height: 1.55;
+      font-size: 15px;
+      line-height: 1.6;
       color: var(--grafito);
     }
 
-    .message-signoff {
-      margin-top: 18px;
-      font-family: 'Pinyon Script', cursive;
-      font-style: normal;
-      font-size: 34px;
-      color: var(--rosa-deep);
+    .verso-cita {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--texto-dim);
     }
 
-    .details {
+    .monograma {
       margin-top: 44px;
-      display: flex;
-      flex-direction: column;
-      gap: 38px;
-    }
-
-    .detail-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(26px);
-      filter: blur(4px);
-      transition: opacity 1s var(--ease-flow), transform 1s var(--ease-flow), filter 1s var(--ease-flow);
-    }
-
-    .detail-row.in {
-      opacity: 1;
-      transform: none;
-      filter: blur(0);
-    }
-
-    .icon-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 1px solid var(--rosa-soft);
-      background: rgba(246, 225, 229, .5);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
-    }
-
-    .detail-row .label {
-      font-family: 'EB Garamond', serif;
-      font-variant: small-caps;
-      letter-spacing: .1em;
-      font-size: 14px;
-      color: var(--rosa-deep);
-      margin-bottom: 8px;
-    }
-
-    .detail-row .value {
+      gap: 22px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-weight: 400;
+      font-size: 84px;
+      line-height: 1;
       color: var(--carbon);
     }
 
-    .detail-row .value small {
-      display: block;
-      font-family: 'EB Garamond', serif;
-      font-size: 15px;
-      color: var(--marfil-dim);
-      margin-top: 5px;
-      letter-spacing: .01em;
-    }
-
-    .map-link {
-      display: inline-block;
-      margin-top: 16px;
-      font-family: 'EB Garamond', serif;
-      font-size: 13px;
-      letter-spacing: .1em;
-      font-variant: small-caps;
-      color: var(--marfil);
-      background: var(--carbon);
-      padding: 11px 26px;
-      border-radius: 1px;
-      text-decoration: none;
-      border: 1px solid var(--grafito);
-      transition: background .2s ease;
-    }
-
-    .map-link:hover {
+    .monograma .bar {
+      width: 1px;
+      height: 78px;
       background: var(--grafito);
     }
 
-    .map-link:active {
-      background: var(--carbon-deep);
+    .nuestra-boda {
+      margin-top: 18px;
+      font-size: 15px;
+      color: var(--grafito);
     }
 
-    /* ---------- COUPLE ILLUSTRATION ---------- */
-    .silhouette-section {
-      margin-top: 94px;
-      padding: 40px 28px 10px;
-      text-align: center;
-    }
-
-    .silhouette-cue {
-      font-size: 30px;
-      color: var(--rosa-deep);
-      margin-bottom: 6px;
-    }
-
-    .silhouette-sub {
-      font-size: 13px;
-      letter-spacing: .1em;
-      font-variant: small-caps;
-      color: var(--marfil-dim);
-      margin-bottom: 6px;
-    }
-
-    .grad-figure {
-      width: 270px;
-      height: auto;
-      margin: 20px auto 0;
+    /* ----- BANDAS CON BORDE RASGADO ----- */
+    .tear {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 26px;
+      z-index: 3;
       display: block;
+    }
+
+    .tear.top {
+      top: -1px;
+    }
+
+    .tear.bottom {
+      bottom: -1px;
+      transform: scaleY(-1);
+    }
+
+    .foto-band {
+      position: relative;
+      margin-top: 34px;
+      height: 400px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f3e3e6 0%, #f8eef0 60%, #efe9e6 100%);
+    }
+
+    .foto-band .foto-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity .8s ease;
+    }
+
+    .foto-band .foto-img.ok {
+      opacity: 1;
+    }
+
+    .couple {
+      position: absolute;
+      left: 50%;
+      bottom: 6px;
+      height: 372px;
+      width: auto;
+      transform: translateX(-50%);
       overflow: visible;
     }
 
@@ -879,114 +904,394 @@
       transform: none;
     }
 
-    .figure-glow {
-      opacity: 0;
-      transition: opacity 1.4s var(--ease-flow);
+    /* ----- INTRO Y NOMBRES ----- */
+    .intro {
+      padding-top: 40px;
     }
 
-    .figure-glow.in {
-      opacity: 1;
+    .intro .sprig.r {
+      right: -30px;
+      top: 70px;
+      width: 120px;
+      transform: scaleX(-1) rotate(70deg);
+      opacity: .9;
     }
 
-    /* ---------- RSVP PANEL ---------- */
-    .rsvp-panel {
-      margin-top: 70px;
-      background: linear-gradient(180deg, var(--grafito) 0%, var(--carbon) 100%);
-      border-top: 1px solid var(--plata-deep);
-      border-bottom: 1px solid var(--plata-deep);
-      padding: 70px 28px 74px;
-      clip-path: inset(0 0 100% 0);
-      transition: clip-path 1.3s var(--ease-flow);
-      color: var(--marfil);
+    .intro-text {
+      max-width: 340px;
+      margin: 0 auto;
+      font-size: 14px;
+      letter-spacing: .07em;
+      line-height: 1.75;
+      color: var(--grafito);
     }
 
-    .rsvp-panel.in {
-      clip-path: inset(0 0 0% 0);
+    .nombres {
+      margin-top: 42px;
+      font-size: 82px;
+      line-height: .95;
+      color: var(--carbon);
     }
 
-    .rsvp-panel-inner {
-      opacity: 0;
-      transform: translateY(14px);
-      filter: blur(4px);
-      transition: opacity 1s var(--ease-flow) .4s, transform 1s var(--ease-flow) .4s, filter 1s var(--ease-flow) .4s;
+    .nombres .amp {
+      display: block;
+      font-size: 52px;
+      color: var(--rosa-deep);
+      margin: 6px 0 2px;
     }
 
-    .rsvp-panel.in .rsvp-panel-inner {
-      opacity: 1;
-      transform: none;
-      filter: blur(0);
+    .nombres-full {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--texto-dim);
     }
 
-    .rsvp-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 46px;
-      letter-spacing: .22em;
-      color: var(--marfil);
+    .honor {
+      margin-top: 34px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--grafito);
+    }
+
+    .fecha {
+      margin-top: 22px;
+    }
+
+    .f-mes {
+      font-size: 17px;
+      color: var(--carbon);
+      letter-spacing: .3em;
+    }
+
+    .f-row {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .f-side {
+      width: 92px;
+      padding: 6px 0;
+      border-top: 1px solid var(--plata);
+      border-bottom: 1px solid var(--plata);
+      font-size: 13px;
+      color: var(--grafito);
+    }
+
+    .f-dia {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--carbon);
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .cbox {
+      width: 60px;
+      padding: 10px 0 8px;
+      border: 1px solid var(--plata-pale);
+      background: #fff;
+      border-radius: 4px;
+    }
+
+    .cbox .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--carbon);
+      line-height: 1;
+    }
+
+    .cbox .lab {
+      margin-top: 5px;
+      font-size: 10px;
+      color: var(--rosa-deep);
+    }
+
+    /* ----- UBICACIÓN ----- */
+    .evento {
+      padding-top: 60px;
+    }
+
+    .ev-hora {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--carbon);
+    }
+
+    .ev-tit {
+      margin-top: 2px;
+      font-size: 17px;
+      color: var(--carbon);
+    }
+
+    .ev-lugar {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--grafito);
+    }
+
+    .ev-dir {
+      font-size: 14px;
+      color: var(--texto-dim);
+    }
+
+    .btn-pill {
+      position: relative;
+      display: inline-block;
+      margin-top: 16px;
+      padding: 9px 30px;
+      background: var(--carbon);
+      color: var(--marfil);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Cormorant Garamond', serif;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      letter-spacing: .16em;
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .2s ease, transform .15s ease;
+    }
+
+    .btn-pill:hover {
+      background: var(--grafito);
+    }
+
+    .btn-pill:active {
+      transform: scale(.97);
+    }
+
+    .btn-pill:focus-visible {
+      outline: 2px solid var(--rosa-deep);
+      outline-offset: 3px;
+    }
+
+    .btn-pill .tap {
+      position: absolute;
+      right: -14px;
+      bottom: -14px;
+      width: 26px;
+      height: 26px;
+      animation: tap 2.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes tap {
+
+      0%,
+      60%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      70% {
+        transform: translate(-3px, -3px) scale(.88);
+      }
+
+      80% {
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    /* ----- ITINERARIO ----- */
+    .itin-title {
+      margin-top: 64px;
+      font-size: 15px;
+      color: var(--grafito);
+      text-align: center;
+    }
+
+    .acuarela {
+      position: relative;
+      margin-top: 18px;
+      padding: 54px 34px 56px;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 25%, rgba(232, 185, 195, .45), transparent 70%),
+        radial-gradient(ellipse 55% 45% at 85% 40%, rgba(185, 188, 194, .45), transparent 70%),
+        radial-gradient(ellipse 70% 40% at 40% 80%, rgba(246, 225, 229, .9), transparent 70%),
+        radial-gradient(ellipse 50% 35% at 90% 90%, rgba(232, 185, 195, .35), transparent 70%),
+        #f1ecea;
+    }
+
+    .acuarela::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='w'><feTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 0.55  0 0 0 0 0.58  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23w)'/></svg>");
+      opacity: .35;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 300px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 61px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--grafito);
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 1.6s var(--ease-flow);
+    }
+
+    .timeline.in::before {
+      transform: scaleY(1);
+    }
+
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 40px 42px 1fr;
+      align-items: center;
+      text-align: left;
+      padding: 10px 0;
+      opacity: 0;
+      transform: translateX(14px);
+      transition: opacity .9s var(--ease-flow), transform .9s var(--ease-flow);
+    }
+
+    .tl-item.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .tl-item svg {
+      width: 30px;
+      height: 30px;
+      justify-self: center;
+    }
+
+    .tl-dot {
+      justify-self: center;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--grafito);
+      box-shadow: 0 0 0 3px #f1ecea;
+    }
+
+    .tl-hora {
+      font-size: 13px;
+      color: var(--carbon);
+      line-height: 1.2;
+    }
+
+    .tl-que {
+      font-size: 16px;
+      color: var(--grafito);
+      line-height: 1.3;
+    }
+
+    /* ----- BLOQUES CON ÍCONO ----- */
+    .info {
+      padding-top: 46px;
+    }
+
+    .info .sprig.r {
+      right: -34px;
+      top: 0;
+      width: 130px;
+      transform: scaleX(-1) rotate(75deg);
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      max-width: 320px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .info-row>svg {
+      width: 40px;
+      height: 40px;
+      margin-top: 2px;
+    }
+
+    .info-tit {
+      font-size: 15px;
+      color: var(--carbon);
+    }
+
+    .info-txt {
+      margin-top: 4px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--texto-dim);
+    }
+
+    .info-sub {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--grafito);
+      display: flex;
+      align-items: center;
       gap: 10px;
     }
 
-    .rsvp-cap {
-      width: 44px;
-      height: auto;
-    }
-
-    .rsvp-deadline {
-      margin-top: 10px;
-      font-size: 13px;
-      letter-spacing: .08em;
-      font-variant: small-caps;
-      color: var(--rosa);
-    }
-
-    .rsvp .lede {
-      margin-top: 18px;
-      font-size: 16px;
-      color: var(--plata);
-      font-style: italic;
-      font-family: 'Cormorant Garamond', serif;
+    /* ----- RSVP ----- */
+    .rsvp {
+      padding-top: 6px;
     }
 
     form {
-      margin-top: 32px;
+      margin-top: 18px;
       text-align: left;
     }
 
     .field {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .field label {
       display: block;
       font-size: 13px;
-      font-variant: small-caps;
-      letter-spacing: .08em;
-      color: var(--rosa);
-      margin-bottom: 8px;
+      color: var(--rosa-deep);
+      margin-bottom: 6px;
     }
 
-    .field input[type="text"],
-    .field input[type="number"] {
+    .field input[type="text"] {
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(250, 246, 241, .4);
-      color: var(--marfil);
+      border-bottom: 1px solid var(--plata);
+      color: var(--carbon);
       font-family: 'EB Garamond', serif;
       font-size: 16px;
-      padding: 8px 2px;
+      padding: 6px 2px;
       outline: none;
+      border-radius: 0;
     }
 
     .field input:focus {
-      border-bottom-color: var(--rosa);
+      border-bottom-color: var(--rosa-deep);
     }
 
     .field input::placeholder {
-      color: rgba(250, 246, 241, .35);
+      color: #a9a8ab;
     }
 
     .pills {
@@ -997,73 +1302,46 @@
     .pill {
       flex: 1;
       text-align: center;
-      padding: 10px 0;
-      border: 1px solid rgba(250, 246, 241, .4);
-      border-radius: 1px;
+      padding: 9px 0;
+      border: 1px solid var(--plata);
+      border-radius: 6px;
       font-family: 'EB Garamond', serif;
-      font-variant: small-caps;
-      letter-spacing: .05em;
       font-size: 15px;
-      color: var(--plata);
+      color: var(--grafito);
       cursor: pointer;
-      background: transparent;
+      background: #fff;
       transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
 
     .pill[aria-pressed="true"] {
-      background: var(--rosa);
-      border-color: var(--rosa);
+      background: var(--rosa-pale);
+      border-color: var(--rosa-deep);
       color: var(--carbon);
     }
 
     .pill:focus-visible {
-      outline: 2px solid var(--marfil);
+      outline: 2px solid var(--rosa-deep);
       outline-offset: 2px;
     }
 
-    .submit-btn {
-      width: 100%;
-      margin-top: 8px;
-      background: var(--marfil);
-      color: var(--carbon-deep);
-      border: none;
-      padding: 15px 0;
-      font-family: 'EB Garamond', serif;
-      font-variant: small-caps;
-      letter-spacing: .1em;
-      font-size: 16px;
-      border-radius: 1px;
-      cursor: pointer;
-      transition: background .2s ease, transform .15s ease;
-    }
-
-    .submit-btn:active {
-      transform: scale(.98);
-    }
-
-    .submit-btn:hover {
-      background: var(--rosa);
-    }
-
-    .submit-btn:focus-visible {
-      outline: 2px solid var(--marfil);
-      outline-offset: 2px;
+    .rsvp .submit-wrap {
+      text-align: center;
     }
 
     .form-note {
-      margin-top: 12px;
+      margin-top: 18px;
       font-size: 12px;
-      color: rgba(250, 246, 241, .65);
+      color: var(--texto-dim);
       text-align: center;
     }
 
     .form-note a {
-      color: var(--marfil);
+      color: var(--carbon);
     }
 
     .error {
       font-size: 12.5px;
-      color: #f0b3bd;
+      color: #b0475b;
       margin-top: 4px;
       display: none;
     }
@@ -1075,7 +1353,7 @@
     .thanks {
       display: none;
       text-align: center;
-      padding: 40px 8px 0;
+      padding: 20px 8px 0;
     }
 
     .thanks.show {
@@ -1083,66 +1361,103 @@
     }
 
     .thanks .headline {
-      font-size: 26px;
-      color: var(--marfil);
-    }
-
-    .thanks p {
-      margin-top: 12px;
-      font-size: 15px;
-      color: var(--plata);
-    }
-
-    footer {
-      margin-top: 0;
-      text-align: center;
-      padding: 74px 28px 40px;
-      position: relative;
-    }
-
-    footer .foot-year {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      color: var(--rosa-soft);
-      line-height: 1;
-    }
-
-    footer .foot-tag {
-      margin-top: 8px;
-      font-size: 26px;
+      font-size: 24px;
       color: var(--carbon);
     }
 
-    footer .foot-signoff {
-      margin-top: 6px;
+    .thanks p {
+      margin-top: 8px;
       font-size: 15px;
-      color: var(--marfil-dim);
+      color: var(--texto-dim);
     }
 
-    footer .foot-mono {
-      margin-top: 26px;
+    #nota-adultos {
+      display: none;
+      padding-top: 40px;
+    }
+
+    #nota-adultos .info-tit {
+      text-align: center;
+    }
+
+    #nota-adultos p {
+      margin: 6px auto 0;
+      max-width: 300px;
+      font-size: 14px;
+      color: var(--texto-dim);
+    }
+
+    /* ----- CIERRE ----- */
+    .cierre {
+      padding-top: 46px;
+      padding-bottom: 34px;
+    }
+
+    .cierre .sprig-h {
+      display: block;
+      width: 170px;
+      margin: 0 auto;
+      transform: rotate(-26deg);
+    }
+
+    .cierre-txt {
+      margin-top: 18px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--grafito);
+    }
+
+    .foto-band.final {
+      margin-top: 0;
+      height: 340px;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 55%, rgba(232, 185, 195, .45), transparent 70%),
+        linear-gradient(180deg, #f6eef0 0%, #efe9e6 100%);
+    }
+
+    .ramo-final {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 240px;
+      height: 240px;
+      transform: translate(-50%, -46%);
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px 28px 40px;
+    }
+
+    .foot-mono {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       font-family: 'Cormorant Garamond', serif;
-      letter-spacing: .22em;
-      font-size: 13px;
-      color: var(--rosa-deep);
+      font-size: 30px;
+      color: var(--carbon);
     }
 
+    .foot-mono .bar {
+      width: 1px;
+      height: 26px;
+      background: var(--grafito);
+    }
+
+    .foot-tag {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--texto-dim);
+    }
+
+    /* ----- REVEALS ----- */
     .sr {
       opacity: 0;
+      transform: translateY(30px);
+      filter: blur(5px);
       transition: opacity 1.1s var(--ease-flow), transform 1.1s var(--ease-flow), filter 1.1s var(--ease-flow);
-      filter: blur(6px);
-    }
-
-    .sr-up {
-      transform: translateY(34px);
-    }
-
-    .sr-fade {
-      transform: none;
-    }
-
-    .sr-rise {
-      transform: translateY(46px) scale(.97);
     }
 
     .sr.in {
@@ -1151,38 +1466,35 @@
       filter: blur(0);
     }
 
-    .reveal {
-      opacity: 0;
-    }
-
-    .reveal.in {
-      opacity: 1;
-    }
-
     @media (prefers-reduced-motion: reduce) {
 
       .seal,
       #seal-overlay,
-      .reveal,
       .sr,
-      .detail-row,
-      .rsvp-panel,
-      .hero-el,
+      .tl-item,
+      .timeline::before,
       #figureFill,
-      .figure-glow,
       #figureOutline {
         transition: none !important;
         filter: none !important;
       }
+
+      .btn-pill .tap,
+      .envelope,
+      .rings-glyph,
+      .invite-script,
+      .invite-kicker,
+      .seal-glow,
+      .seal-shimmer,
+      .dust {
+        animation: none !important;
+      }
     }
 
-    @media (min-width:600px) {
-      .name {
-        font-size: 68px;
-      }
-
-      .rsvp-title {
-        font-size: 56px;
+    @media (min-width: 520px) {
+      main {
+        margin: 40px auto;
+        border-radius: 2px;
       }
     }
   </style>
@@ -1192,62 +1504,139 @@
 
   <div class="noise-layer"></div>
 
-  <!-- Ramita de flores: rosas rosa palo, gris y carbón con nube de novia -->
-  <svg class="branch-defs" aria-hidden="true">
+  <svg class="defs" aria-hidden="true">
     <defs>
-      <g id="branchShape">
-        <path d="M4 4 C 30 30, 46 54, 60 92 C 68 112, 74 130, 70 150" stroke="#8a8d93" stroke-width="1.2" fill="none" />
-        <path d="M20 22 C 34 20, 44 26, 52 34" stroke="#8a8d93" stroke-width=".9" fill="none" />
-        <path d="M38 58 C 52 54, 64 58, 74 66" stroke="#8a8d93" stroke-width=".9" fill="none" />
-        <path d="M52 92 C 40 92, 30 98, 22 108" stroke="#8a8d93" stroke-width=".9" fill="none" />
-        <!-- rosa palo -->
-        <circle cx="12" cy="10" r="9" fill="#e8b9c3" />
-        <circle cx="12" cy="10" r="5.5" fill="#d293a2" />
-        <circle cx="12" cy="10" r="2.4" fill="#b97888" />
-        <!-- gris -->
-        <circle cx="56" cy="32" r="7" fill="#b9bcc2" />
-        <circle cx="56" cy="32" r="4" fill="#8a8d93" />
-        <circle cx="56" cy="32" r="1.6" fill="#6b6e74" />
-        <!-- carbón -->
-        <circle cx="74" cy="66" r="6" fill="#3a3b3f" />
-        <circle cx="74" cy="66" r="3.2" fill="#1c1c1f" />
-        <!-- marfil -->
-        <circle cx="24" cy="108" r="5.4" fill="#f3ede4" stroke="#d8d2ca" stroke-width=".6" />
-        <circle cx="24" cy="108" r="2.4" fill="#e6ded3" />
-        <!-- nube de novia -->
-        <g fill="#c8cacf">
-          <circle cx="30" cy="4" r="1.6" />
-          <circle cx="34" cy="10" r="1.3" />
-          <circle cx="26" cy="22" r="1.4" />
-          <circle cx="44" cy="22" r="1.5" />
-          <circle cx="48" cy="44" r="1.3" />
-          <circle cx="66" cy="46" r="1.6" />
-          <circle cx="62" cy="80" r="1.4" />
-          <circle cx="40" cy="96" r="1.5" />
-          <circle cx="32" cy="100" r="1.2" />
-          <circle cx="68" cy="112" r="1.4" />
-          <circle cx="84" cy="62" r="1.3" />
+      <!-- Rosa: colores vía --r1 (pétalos) y --r2 (espiral) -->
+      <symbol id="rosa" viewBox="-12 -12 24 24">
+        <circle r="11" style="fill:var(--r1)" />
+        <path d="M-6.5 -1 A6.5 6.5 0 1 1 2.5 6.2 M2.5 6.2 A4.2 4.2 0 1 1 -3 -3 M-3 -3 A2 2 0 1 1 1 1"
+          style="fill:none;stroke:var(--r2)" stroke-width="1.3" stroke-linecap="round" />
+      </symbol>
+
+      <!-- Ramita: eucalipto plateado, rosas del ramo y nube de novia -->
+      <symbol id="ramita" viewBox="0 0 220 150">
+        <path d="M2 6 C50 20 100 30 150 60 C175 75 195 95 210 140" stroke="#8a8d93" stroke-width="1.2" fill="none" />
+        <g stroke="#8a8d93" stroke-width=".5">
+          <ellipse cx="38" cy="4" rx="10" ry="7.5" fill="#c9ccd1" transform="rotate(-10 38 4)" />
+          <ellipse cx="62" cy="33" rx="10" ry="7.5" fill="#aeb2b8" transform="rotate(20 62 33)" />
+          <ellipse cx="80" cy="14" rx="10.5" ry="8" fill="#d3d5d9" transform="rotate(5 80 14)" />
+          <ellipse cx="102" cy="45" rx="10.5" ry="8" fill="#b9bcc2" transform="rotate(25 102 45)" />
+          <ellipse cx="120" cy="28" rx="11" ry="8.5" fill="#c3c6cb" transform="rotate(20 120 28)" />
+          <ellipse cx="136" cy="64" rx="10.5" ry="8" fill="#a9adb3" transform="rotate(35 136 64)" />
+          <ellipse cx="164" cy="52" rx="10.5" ry="8" fill="#ced1d5" transform="rotate(40 164 52)" />
+          <ellipse cx="160" cy="82" rx="10" ry="7.5" fill="#b4b7bd" transform="rotate(50 160 82)" />
+          <ellipse cx="192" cy="78" rx="9.5" ry="7" fill="#c6c9ce" transform="rotate(55 192 78)" />
+          <ellipse cx="184" cy="108" rx="9" ry="7" fill="#aeb2b8" transform="rotate(65 184 108)" />
+          <ellipse cx="212" cy="112" rx="8.5" ry="6.5" fill="#d0d2d6" transform="rotate(70 212 112)" />
+          <ellipse cx="210" cy="143" rx="7" ry="5.5" fill="#bcbfc4" transform="rotate(80 210 143)" />
         </g>
+        <g stroke="#9fa2a8" stroke-width=".4" fill="none">
+          <path d="M34 5 L43 3 M58 32 L67 35 M76 14 L86 14 M98 44 L107 47 M115 27 L126 30" />
+        </g>
+        <use href="#rosa" x="4" y="6" width="34" height="34" style="--r1:#e8b9c3;--r2:#c98a99" />
+        <use href="#rosa" x="30" y="26" width="26" height="26" style="--r1:#f3ede4;--r2:#d8cfc3" />
+        <use href="#rosa" x="0" y="36" width="20" height="20" style="--r1:#9fa2a8;--r2:#6b6e74" />
+        <use href="#rosa" x="22" y="0" width="16" height="16" style="--r1:#3a3b3f;--r2:#16161a" />
+        <g fill="#fff" stroke="#b9bcc2" stroke-width=".5">
+          <circle cx="48" cy="20" r="1.8" />
+          <circle cx="54" cy="16" r="1.4" />
+          <circle cx="58" cy="54" r="1.6" />
+          <circle cx="46" cy="58" r="1.4" />
+          <circle cx="24" cy="58" r="1.7" />
+          <circle cx="16" cy="62" r="1.3" />
+          <circle cx="66" cy="20" r="1.3" />
+          <circle cx="40" cy="62" r="1.2" />
+        </g>
+      </symbol>
+
+      <!-- Ramo de la novia -->
+      <g id="ramo">
+        <path d="M198 230 L196 262 M204 230 L206 262" stroke="#8a8d93" stroke-width="1.4" />
+        <path d="M200 236 C196 252 194 262 196 270 M204 236 C208 252 210 262 208 270" stroke="#f3ede4"
+          stroke-width="2" fill="none" />
+        <use href="#rosa" x="177" y="205" width="18" height="18" style="--r1:#3a3b3f;--r2:#16161a" />
+        <use href="#rosa" x="209.5" y="205.5" width="17" height="17" style="--r1:#8a8d93;--r2:#5f6268" />
+        <use href="#rosa" x="192.5" y="194.5" width="19" height="19" style="--r1:#e8b9c3;--r2:#c98a99" />
+        <use href="#rosa" x="185" y="215" width="18" height="18" style="--r1:#f3ede4;--r2:#d3c9bc" />
+        <use href="#rosa" x="202" y="216" width="18" height="18" style="--r1:#f0c9d1;--r2:#c98a99" />
+        <use href="#rosa" x="195.5" y="225.5" width="13" height="13" style="--r1:#b9bcc2;--r2:#8a8d93" />
+        <g fill="#ffffff" stroke="#b9bcc2" stroke-width=".4">
+          <circle cx="178" cy="204" r="1.8" />
+          <circle cx="182" cy="198" r="1.5" />
+          <circle cx="226" cy="204" r="1.8" />
+          <circle cx="222" cy="198" r="1.5" />
+          <circle cx="180" cy="228" r="1.6" />
+          <circle cx="226" cy="228" r="1.6" />
+          <circle cx="194" cy="196" r="1.4" />
+          <circle cx="212" cy="196" r="1.4" />
+          <circle cx="202" cy="242" r="1.5" />
+          <circle cx="174" cy="216" r="1.3" />
+          <circle cx="230" cy="216" r="1.3" />
+        </g>
+      </g>
+
+      <!-- Corazón pequeño -->
+      <path id="heart" d="M5 9 C1.5 6.5 0 4.8 0 3 A2.4 2.4 0 0 1 5 1.8 A2.4 2.4 0 0 1 10 3 C10 4.8 8.5 6.5 5 9Z" />
+
+      <!-- Mano que toca -->
+      <g id="hand">
+        <path
+          d="M9 12V4.6a1.6 1.6 0 013.2 0V11m0-1.4a1.6 1.6 0 013.2 0V12m0-1a1.6 1.6 0 013.2 0v1.6m0-.6a1.6 1.6 0 013.2 0v4.6c0 3.6-2.6 6.4-6.2 6.4h-1.6c-2 0-3.4-.8-4.6-2.3L5 17a1.6 1.6 0 012.4-2L9 16.6"
+          fill="#fff" stroke="#1c1c1f" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" />
+      </g>
+      <!-- FILTROS Y GRADIENTES PARA SOBRE ARTESANAL 4 SOLAPAS -->
+      <filter id="relief" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="-1.2" dy="-1.4" stdDeviation="0.7" flood-color="#ffffff" flood-opacity="0.85" />
+        <feDropShadow dx="1.4" dy="1.6" stdDeviation="1" flood-color="#a8875f" flood-opacity="0.45" />
+      </filter>
+
+      <linearGradient id="sageGradH" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#f6efe3" />
+        <stop offset="70%" stop-color="#fbf6ed" />
+        <stop offset="100%" stop-color="#efe5d4" />
+      </linearGradient>
+
+      <linearGradient id="sageGradV" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#fbf6ee" />
+        <stop offset="85%" stop-color="#f4ecdf" />
+        <stop offset="100%" stop-color="#ebe0cd" />
+      </linearGradient>
+
+      <linearGradient id="innerSageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#efe6d6" />
+        <stop offset="100%" stop-color="#e6dac6" />
+      </linearGradient>
+
+      <!-- Motivos Florales en Relieve -->
+      <g id="blossom-poppy">
+        <circle cx="0" cy="0" r="5.5" fill="#f1e7d6" filter="url(#relief)" />
+        <circle cx="0" cy="0" r="3" fill="#d9b66a" />
+        <circle cx="-1.5" cy="-1.5" r="0.8" fill="#ffffff" />
+        <circle cx="1.5" cy="-1" r="0.8" fill="#ffffff" />
+        <circle cx="0" cy="1.8" r="0.8" fill="#ffffff" />
+        <path d="M0 -5 C-8 -22 8 -22 0 -5 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M4 -3 C18 -15 22 -3 4 -3 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M5 2 C22 4 18 18 5 2 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M2 5 C5 22 -7 22 2 5 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M-3 4 C-18 16 -20 3 -3 4 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M-4 -2 C-22 -3 -16 -16 -4 -2 Z" fill="#f5ede0" filter="url(#relief)" />
+      </g>
+
+      <g id="rose-bud">
+        <path d="M0 0 C-4 -7 -4 -14 0 -18 C4 -14 4 -7 0 0 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M-2 -3 C-8 -5 -9 -11 -4 -9 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M2 -3 C8 -5 9 -11 4 -9 Z" fill="#f5ede0" filter="url(#relief)" />
+      </g>
+
+      <g id="leaf-pair">
+        <path d="M0 0 C-7 -6 -9 -15 0 -20 C-1 -12 2 -7 0 0 Z" fill="#f5ede0" filter="url(#relief)" />
+        <path d="M0 0 C7 -6 9 -15 0 -20 C1 -12 -2 -7 0 0 Z" fill="#f5ede0" filter="url(#relief)" />
       </g>
     </defs>
   </svg>
 
   <!-- SEAL OPENING OVERLAY -->
   <div id="seal-overlay">
-    <svg class="branch tl small" viewBox="0 0 90 110">
-      <use href="#branchShape" transform="scale(0.6)" />
-    </svg>
-    <svg class="branch tr small" viewBox="0 0 90 110">
-      <use href="#branchShape" transform="scale(0.6)" />
-    </svg>
-    <svg class="branch bl small" viewBox="0 0 90 110">
-      <use href="#branchShape" transform="scale(0.6)" />
-    </svg>
-    <svg class="branch br small" viewBox="0 0 90 110">
-      <use href="#branchShape" transform="scale(0.6)" />
-    </svg>
-
-    <!-- floating petals -->
     <div class="dust" style="left:12%;bottom:10%;animation-duration:5s;animation-delay:0s;"></div>
     <div class="dust" style="left:28%;bottom:5%;animation-duration:6.5s;animation-delay:.8s;"></div>
     <div class="dust" style="left:45%;bottom:8%;animation-duration:5.8s;animation-delay:1.5s;"></div>
@@ -1262,30 +1651,288 @@
     <div class="seal-glow"></div>
 
     <div class="seal-wrap">
-      <!-- anillos entrelazados -->
-      <svg class="cap-glyph" width="52" height="34" viewBox="0 0 52 34" fill="none">
-        <circle cx="20" cy="20" r="11" stroke="#e8b9c3" stroke-width="1.8" />
-        <circle cx="32" cy="20" r="11" stroke="#b9bcc2" stroke-width="1.8" />
-        <path d="M29 6 L32 2 L35 6 L32 9 Z" fill="#f6e1e5" />
+      <svg class="rings-glyph" width="52" height="34" viewBox="0 0 52 34" fill="none">
+        <circle cx="20" cy="20" r="11" stroke="#b49a65" stroke-width="1.8" />
+        <circle cx="32" cy="20" r="11" stroke="#d2b47a" stroke-width="1.8" />
+        <path d="M29 6 L32 2 L35 6 L32 9 Z" fill="#8d6b3f" />
       </svg>
       <div class="invite-script script">Estás invitad@</div>
-      <div class="invite-kicker">a nuestra boda</div>
+      <div class="invite-kicker sc">a nuestra boda</div>
 
       <button class="seal-btn" id="sealBtn" aria-label="Abrir invitación">
         <div class="envelope" id="envelope">
-          <div class="env-body">
-            <div class="env-card"></div>
+          <!-- Interior base & Tarjeta de boda interior -->
+          <div class="env-base">
+            <div class="paper-texture"></div>
+            <div class="env-card-inside">
+              <div class="card-border-frame"></div>
+              <div class="card-border-inner"></div>
+              <div class="card-monogram">P &amp; A</div>
+              <div class="card-script">Nuestra Boda</div>
+              <div class="card-names">Pilly Cano &amp; Anabel Baltazar</div>
+              <div class="card-date">21 · Noviembre · 2026</div>
+            </div>
           </div>
-          <div class="env-flap">
-            <div class="env-flap-face env-flap-front"></div>
-            <div class="env-flap-face env-flap-back"></div>
+
+          <!-- 1. SOLAPA SUPERIOR (Triangular, pliega hacia arriba) -->
+          <div class="flap-container flap-top-wrap">
+            <div class="flap-face flap-front">
+              <svg viewBox="0 0 310 220">
+                <path d="M 0 0 L 310 0 L 155 220 Z" fill="url(#sageGradV)" filter="drop-shadow(0 6px 14px rgba(120, 82, 70, 0.18))" />
+                <line x1="0" y1="0" x2="155" y2="220" stroke="rgba(255,255,255,0.6)" stroke-width="1" />
+                <line x1="310" y1="0" x2="155" y2="220" stroke="rgba(150,120,90,0.18)" stroke-width="1" />
+                <g transform="translate(155, 110)">
+                  <use href="#blossom-poppy" transform="scale(1.1)" />
+                  <path d="M-4 -4 C-25 -25 -55 -22 -75 -38" fill="none" stroke="#e2d3bb" stroke-width="1.8" filter="url(#relief)" />
+                  <use href="#rose-bud" transform="translate(-75, -38) rotate(-55) scale(0.85)" />
+                  <use href="#leaf-pair" transform="translate(-45, -24) rotate(-45) scale(0.75)" />
+                  <path d="M4 -4 C25 -25 55 -22 75 -38" fill="none" stroke="#e2d3bb" stroke-width="1.8" filter="url(#relief)" />
+                  <use href="#rose-bud" transform="translate(75, -38) rotate(55) scale(0.85)" />
+                  <use href="#leaf-pair" transform="translate(45, -24) rotate(45) scale(0.75)" />
+                  <use href="#leaf-pair" transform="translate(0, 32) rotate(180) scale(0.8)" />
+                </g>
+              </svg>
+            </div>
+            <div class="flap-face flap-back">
+              <svg viewBox="0 0 310 220">
+                <path d="M 0 0 L 310 0 L 155 220 Z" fill="url(#innerSageGrad)" />
+                <path d="M 10 5 L 300 5 L 155 210 Z" fill="none" stroke="rgba(177,138,74,0.18)" stroke-width="1" />
+              </svg>
+            </div>
           </div>
+
+          <!-- 2. SOLAPA INFERIOR (Triangular, pliega hacia abajo) -->
+          <div class="flap-container flap-bottom-wrap">
+            <div class="flap-face flap-front">
+              <svg viewBox="0 0 310 220">
+                <path d="M 0 220 L 155 0 L 310 220 Z" fill="url(#sageGradV)" filter="drop-shadow(0 -5px 14px rgba(120, 82, 70, 0.16))" />
+                <line x1="0" y1="220" x2="155" y2="0" stroke="rgba(255,255,255,0.6)" stroke-width="1" />
+                <line x1="310" y1="220" x2="155" y2="0" stroke="rgba(150,120,90,0.18)" stroke-width="1" />
+                <g transform="translate(155, 105)">
+                  <use href="#blossom-poppy" transform="scale(1.05)" />
+                  <path d="M-4 4 C-25 25 -55 22 -70 35" fill="none" stroke="#e2d3bb" stroke-width="1.8" filter="url(#relief)" />
+                  <use href="#rose-bud" transform="translate(-70, 35) rotate(135) scale(0.85)" />
+                  <use href="#leaf-pair" transform="translate(-40, 22) rotate(135) scale(0.75)" />
+                  <path d="M4 4 C25 25 55 22 70 35" fill="none" stroke="#e2d3bb" stroke-width="1.8" filter="url(#relief)" />
+                  <use href="#rose-bud" transform="translate(70, 35) rotate(-135) scale(0.85)" />
+                  <use href="#leaf-pair" transform="translate(40, 22) rotate(-135) scale(0.75)" />
+                  <text x="0" y="78" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="14" font-weight="600" letter-spacing="3" fill="#b18a4a">P · A</text>
+                </g>
+              </svg>
+            </div>
+            <div class="flap-face flap-back">
+              <svg viewBox="0 0 310 220">
+                <path d="M 0 220 L 155 0 L 310 220 Z" fill="url(#innerSageGrad)" />
+                <path d="M 10 215 L 155 10 L 300 215 Z" fill="none" stroke="rgba(177,138,74,0.18)" stroke-width="1" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- 3. SOLAPA IZQUIERDA (Encaje calado festoneado, pliega a la izquierda) -->
+          <div class="flap-container flap-left-wrap">
+            <div class="flap-face flap-front">
+              <svg viewBox="0 0 185 430">
+                <path d="
+                  M 0 0 
+                  L 20 0
+                  C 35 12, 50 18, 65 32
+                  C 78 44, 90 58, 104 74
+                  C 120 92, 136 114, 148 138
+                  C 160 162, 172 186, 178 215
+                  C 172 244, 160 268, 148 292
+                  C 136 316, 120 338, 104 356
+                  C 90 372, 78 386, 65 398
+                  C 50 412, 35 418, 20 430
+                  L 0 430
+                  Z
+                " fill="url(#sageGradH)" filter="drop-shadow(4px 4px 14px rgba(120, 82, 70, 0.2))" />
+
+                <!-- Perforaciones de corte láser a lo largo del encaje -->
+                <g fill="#cdb894" opacity="0.9">
+                  <circle cx="42" cy="18" r="1.6" />
+                  <circle cx="53" cy="24" r="1.6" />
+                  <circle cx="65" cy="34" r="1.7" />
+                  <circle cx="77" cy="47" r="1.7" />
+                  <circle cx="90" cy="62" r="1.8" />
+                  <circle cx="104" cy="79" r="1.8" />
+                  <circle cx="118" cy="99" r="1.9" />
+                  <circle cx="132" cy="122" r="2.0" />
+                  <circle cx="145" cy="147" r="2.1" />
+                  <circle cx="156" cy="174" r="2.2" />
+                  <circle cx="166" cy="201" r="2.2" />
+                  <circle cx="170" cy="215" r="2.3" />
+                  <circle cx="166" cy="229" r="2.2" />
+                  <circle cx="156" cy="256" r="2.2" />
+                  <circle cx="145" cy="283" r="2.1" />
+                  <circle cx="132" cy="308" r="2.0" />
+                  <circle cx="118" cy="331" r="1.9" />
+                  <circle cx="104" cy="351" r="1.8" />
+                  <circle cx="90" cy="368" r="1.8" />
+                  <circle cx="77" cy="383" r="1.7" />
+                  <circle cx="65" cy="396" r="1.7" />
+                  <circle cx="53" cy="406" r="1.6" />
+                  <circle cx="42" cy="412" r="1.6" />
+                </g>
+
+                <!-- Flores y ramas en relieve gofrado -->
+                <g transform="translate(75, 215)">
+                  <use href="#blossom-poppy" transform="scale(1.4)" />
+                  <path d="M-10 -20 C-15 -60 10 -90 25 -125 C35 -145 20 -165 5 -185" fill="none" stroke="#e2d3bb" stroke-width="2" filter="url(#relief)" />
+                  <use href="#blossom-poppy" transform="translate(25, -125) scale(1.05) rotate(22)" />
+                  <use href="#rose-bud" transform="translate(5, -185) scale(0.9) rotate(-30)" />
+                  <use href="#rose-bud" transform="translate(38, -100) scale(0.7) rotate(45)" />
+                  <use href="#leaf-pair" transform="translate(2, -60) scale(0.9) rotate(-25)" />
+                  <use href="#leaf-pair" transform="translate(22, -150) scale(0.8) rotate(35)" />
+                  <path d="M-10 20 C-15 60 10 90 25 125 C35 145 20 165 5 185" fill="none" stroke="#e2d3bb" stroke-width="2" filter="url(#relief)" />
+                  <use href="#blossom-poppy" transform="translate(25, 125) scale(1.05) rotate(-22)" />
+                  <use href="#rose-bud" transform="translate(5, 185) scale(0.9) rotate(150)" />
+                  <use href="#rose-bud" transform="translate(38, 100) scale(0.7) rotate(-45)" />
+                  <use href="#leaf-pair" transform="translate(2, 60) scale(0.9) rotate(25)" />
+                  <use href="#leaf-pair" transform="translate(22, 150) scale(0.8) rotate(-35)" />
+                </g>
+              </svg>
+            </div>
+            <div class="flap-face flap-back">
+              <svg viewBox="0 0 185 430">
+                <path d="
+                  M 0 0 
+                  L 20 0
+                  C 35 12, 50 18, 65 32
+                  C 78 44, 90 58, 104 74
+                  C 120 92, 136 114, 148 138
+                  C 160 162, 172 186, 178 215
+                  C 172 244, 160 268, 148 292
+                  C 136 316, 120 338, 104 356
+                  C 90 372, 78 386, 65 398
+                  C 50 412, 35 418, 20 430
+                  L 0 430
+                  Z
+                " fill="url(#innerSageGrad)" />
+                <path d="
+                  M 8 8 
+                  L 16 8
+                  C 30 18, 44 24, 58 37
+                  C 70 48, 81 61, 94 76
+                  C 109 93, 124 114, 135 136
+                  C 146 158, 157 182, 162 215
+                  C 157 248, 146 272, 135 294
+                  C 124 316, 109 337, 94 354
+                  C 81 369, 70 382, 58 393
+                  C 44 406, 30 412, 16 422
+                  L 8 422
+                  Z
+                " fill="none" stroke="rgba(177,138,74,0.16)" stroke-width="1" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- 4. SOLAPA DERECHA (Encaje calado festoneado, pliega a la derecha) -->
+          <div class="flap-container flap-right-wrap">
+            <div class="flap-face flap-front">
+              <svg viewBox="0 0 185 430">
+                <g transform="scale(-1, 1) translate(-185, 0)">
+                  <path d="
+                    M 0 0 
+                    L 20 0
+                    C 35 12, 50 18, 65 32
+                    C 78 44, 90 58, 104 74
+                    C 120 92, 136 114, 148 138
+                    C 160 162, 172 186, 178 215
+                    C 172 244, 160 268, 148 292
+                    C 136 316, 120 338, 104 356
+                    C 90 372, 78 386, 65 398
+                    C 50 412, 35 418, 20 430
+                    L 0 430
+                    Z
+                  " fill="url(#sageGradH)" filter="drop-shadow(-4px 4px 14px rgba(120, 82, 70, 0.2))" />
+
+                  <g fill="#cdb894" opacity="0.9">
+                    <circle cx="42" cy="18" r="1.6" />
+                    <circle cx="53" cy="24" r="1.6" />
+                    <circle cx="65" cy="34" r="1.7" />
+                    <circle cx="77" cy="47" r="1.7" />
+                    <circle cx="90" cy="62" r="1.8" />
+                    <circle cx="104" cy="79" r="1.8" />
+                    <circle cx="118" cy="99" r="1.9" />
+                    <circle cx="132" cy="122" r="2.0" />
+                    <circle cx="145" cy="147" r="2.1" />
+                    <circle cx="156" cy="174" r="2.2" />
+                    <circle cx="166" cy="201" r="2.2" />
+                    <circle cx="170" cy="215" r="2.3" />
+                    <circle cx="166" cy="229" r="2.2" />
+                    <circle cx="156" cy="256" r="2.2" />
+                    <circle cx="145" cy="283" r="2.1" />
+                    <circle cx="132" cy="308" r="2.0" />
+                    <circle cx="118" cy="331" r="1.9" />
+                    <circle cx="104" cy="351" r="1.8" />
+                    <circle cx="90" cy="368" r="1.8" />
+                    <circle cx="77" cy="383" r="1.7" />
+                    <circle cx="65" cy="396" r="1.7" />
+                    <circle cx="53" cy="406" r="1.6" />
+                    <circle cx="42" cy="412" r="1.6" />
+                  </g>
+
+                  <g transform="translate(75, 215)">
+                    <use href="#blossom-poppy" transform="scale(1.4)" />
+                    <path d="M-10 -20 C-15 -60 10 -90 25 -125 C35 -145 20 -165 5 -185" fill="none" stroke="#e2d3bb" stroke-width="2" filter="url(#relief)" />
+                    <use href="#blossom-poppy" transform="translate(25, -125) scale(1.05) rotate(22)" />
+                    <use href="#rose-bud" transform="translate(5, -185) scale(0.9) rotate(-30)" />
+                    <use href="#rose-bud" transform="translate(38, -100) scale(0.7) rotate(45)" />
+                    <use href="#leaf-pair" transform="translate(2, -60) scale(0.9) rotate(-25)" />
+                    <use href="#leaf-pair" transform="translate(22, -150) scale(0.8) rotate(35)" />
+                    <path d="M-10 20 C-15 60 10 90 25 125 C35 145 20 165 5 185" fill="none" stroke="#e2d3bb" stroke-width="2" filter="url(#relief)" />
+                    <use href="#blossom-poppy" transform="translate(25, 125) scale(1.05) rotate(-22)" />
+                    <use href="#rose-bud" transform="translate(5, 185) scale(0.9) rotate(150)" />
+                    <use href="#rose-bud" transform="translate(38, 100) scale(0.7) rotate(-45)" />
+                    <use href="#leaf-pair" transform="translate(2, 60) scale(0.9) rotate(25)" />
+                    <use href="#leaf-pair" transform="translate(22, 150) scale(0.8) rotate(-35)" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="flap-face flap-back">
+              <svg viewBox="0 0 185 430">
+                <g transform="scale(-1, 1) translate(-185, 0)">
+                  <path d="
+                    M 0 0 
+                    L 20 0
+                    C 35 12, 50 18, 65 32
+                    C 78 44, 90 58, 104 74
+                    C 120 92, 136 114, 148 138
+                    C 160 162, 172 186, 178 215
+                    C 172 244, 160 268, 148 292
+                    C 136 316, 120 338, 104 356
+                    C 90 372, 78 386, 65 398
+                    C 50 412, 35 418, 20 430
+                    L 0 430
+                    Z
+                  " fill="url(#innerSageGrad)" />
+                  <path d="
+                    M 8 8 
+                    L 16 8
+                    C 30 18, 44 24, 58 37
+                    C 70 48, 81 61, 94 76
+                    C 109 93, 124 114, 135 136
+                    C 146 158, 157 182, 162 215
+                    C 157 248, 146 272, 135 294
+                    C 124 316, 109 337, 94 354
+                    C 81 369, 70 382, 58 393
+                    C 44 406, 30 412, 16 422
+                    L 8 422
+                    Z
+                  " fill="none" stroke="rgba(177,138,74,0.16)" stroke-width="1" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Sello de Cera Central que sella las 4 solapas -->
           <span class="seal" id="waxSeal">
             <span class="seal-wax"></span>
             <span class="seal-ring"></span>
             <span class="seal-shimmer"></span>
             <span class="seal-content">
-              <span class="seal-mono">P<span class="amp">&amp;</span>A</span>
+              <span class="seal-mono">P<span class="bar"></span>A</span>
               <span class="seal-sub">21 · XI · 2026</span>
             </span>
           </span>
@@ -1296,105 +1943,40 @@
     </div>
   </div>
 
-  <div class="golden-flash" id="goldenFlash"></div>
+  <div class="open-flash" id="openFlash"></div>
 
-  <!-- MAIN INVITATION -->
+  <!-- INVITACIÓN -->
   <main>
 
-    <div class="block hero-block reveal" id="heroBlock">
-      <div class="hero-glow"></div>
-      <svg class="branch tl" viewBox="0 0 90 160">
-        <use href="#branchShape" />
+    <!-- Portada -->
+    <section class="sec portada">
+      <svg class="sprig tl" viewBox="0 0 220 150">
+        <use href="#ramita" width="220" height="150" />
       </svg>
-      <svg class="branch tr" viewBox="0 0 90 160">
-        <use href="#branchShape" />
+      <svg class="sprig tr" viewBox="0 0 220 150">
+        <use href="#ramita" width="220" height="150" />
       </svg>
 
-      <div class="kicker-script script hero-el">¡Nos casamos!</div>
-      <h1 class="name hero-el">Pilly<span class="amp">&amp;</span>Anabel</h1>
-      <div class="titles hero-el">
-        Pilly Cano · Anabel Baltazar
-        <span class="date-line">21 · 11 · 2026</span>
+      <div class="hero-el sr">
+        <p class="verso">“Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el
+          amor.”</p>
+        <div class="verso-cita sc">1 Corintios 13:13</div>
       </div>
 
-      <div class="countdown hero-el" id="countdown">
-        <div class="cbox">
-          <div class="num" id="cd-days">00</div>
-          <div class="lab">Días</div>
-        </div>
-        <div class="cbox">
-          <div class="num" id="cd-hours">00</div>
-          <div class="lab">Horas</div>
-        </div>
-        <div class="cbox">
-          <div class="num" id="cd-mins">00</div>
-          <div class="lab">Min</div>
-        </div>
-        <div class="cbox">
-          <div class="num" id="cd-secs">00</div>
-          <div class="lab">Seg</div>
-        </div>
-      </div>
-    </div>
-
-    <section class="block sr sr-up">
-      <div class="message">
-        <div class="rule" style="margin-bottom:26px;"></div>
-        <p>Con la bendición de Dios y el cariño de nuestras familias, hemos decidido unir nuestras vidas para
-          siempre.</p>
-        <p style="margin-top:16px;">Nada nos haría más felices que compartir este día tan especial contigo y que seas
-          parte del comienzo de nuestra historia juntos.</p>
-        <div class="message-signoff">Pilly &amp; Anabel</div>
-        <div class="rule" style="margin-top:26px;"></div>
-      </div>
+      <div class="monograma hero-el sr">P<span class="bar"></span>A</div>
+      <div class="nuestra-boda sc hero-el sr">Nuestra boda</div>
+      <div class="divider hero-el sr"><svg viewBox="0 0 10 9"><use href="#heart" fill="#9d5f6f" /></svg></div>
     </section>
 
-    <section class="block tight sr sr-fade" id="detailsSection">
-      <div class="details">
-        <div class="detail-row">
-          <span class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <rect x="2.5" y="4" width="15" height="13" rx="1" stroke="#9d5f6f" stroke-width="1.2" />
-              <path d="M2.5 8h15M6 2.5v3M14 2.5v3" stroke="#9d5f6f" stroke-width="1.2" />
-            </svg>
-          </span>
-          <div class="label">Fecha</div>
-          <div class="value">21 de noviembre de 2026<small>Sábado</small></div>
-        </div>
-        <div class="detail-row">
-          <span class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="7.5" stroke="#9d5f6f" stroke-width="1.2" />
-              <path d="M10 5.5V10l3.3 2" stroke="#9d5f6f" stroke-width="1.2" stroke-linecap="round" />
-            </svg>
-          </span>
-          <div class="label">Hora</div>
-          <div class="value">3:00 p.m.<small>Ceremonia y celebración</small></div>
-        </div>
-        <div class="detail-row">
-          <span class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 18s6-6.2 6-10.8A6 6 0 004 7.2C4 11.8 10 18 10 18z" stroke="#9d5f6f" stroke-width="1.2" />
-              <circle cx="10" cy="7.2" r="2" stroke="#9d5f6f" stroke-width="1.2" />
-            </svg>
-          </span>
-          <div class="label">Lugar</div>
-          <div class="value">Casa de la novia<small>119 June Ave, Hueytown, AL 35023</small></div>
-          <a class="map-link" href="https://maps.app.goo.gl/X8YMzi8Hotf1f7np6" target="_blank" rel="noopener">Cómo
-            llegar</a>
-        </div>
-      </div>
-    </section>
+    <!-- Foto 1: si existe fotos/foto-1.jpg se muestra; si no, la ilustración de los novios -->
+    <section class="foto-band sr" id="fotoBand">
+      <svg class="tear top" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true"></svg>
 
-    <section class="silhouette-section sr sr-rise" id="silhouetteSection">
-      <div class="silhouette-cue script">Dos corazones, un mismo camino</div>
-      <div class="silhouette-sub">y tú eres parte de nuestra historia</div>
-
-      <svg class="grad-figure" viewBox="0 0 320 420" role="img" aria-label="Ilustración de los novios">
+      <svg class="couple" viewBox="30 60 260 340" role="img" aria-label="Ilustración de los novios">
         <defs>
           <linearGradient id="archGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#f6e1e5" />
-            <stop offset="100%" stop-color="#f6e1e5" stop-opacity="0" />
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".7" />
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
           </linearGradient>
           <linearGradient id="gownGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#ffffff" />
@@ -1407,80 +1989,63 @@
           </linearGradient>
         </defs>
 
-        <!-- arco de fondo -->
-        <path class="figure-glow" d="M40 400 V170 A120 120 0 0 1 280 170 V400 Z" fill="url(#archGrad)" />
-        <ellipse class="figure-glow" cx="160" cy="400" rx="110" ry="8" fill="#1c1c1f" opacity=".12" />
-
+        <path d="M40 400 V170 A120 120 0 0 1 280 170 V400 Z" fill="url(#archGrad)" />
         <path id="figureOutline" d="M40 400 V170 A120 120 0 0 1 280 170 V400" />
 
         <g id="figureFill">
-          <!-- ===== NOVIO: saco blanco, solapas plata, moño plata, pantalón gris ===== -->
-          <!-- pantalón -->
+          <!-- NOVIO: saco blanco, solapas plata, moño plata, pantalón gris -->
           <path d="M98 262 L95 392 L117 392 L121 300 L125 392 L147 392 L144 262 Z" fill="#b9bcc2" />
           <path d="M121 300 L121 392" stroke="#9fa2a8" stroke-width="1" />
           <rect x="93" y="390" width="26" height="6" rx="3" fill="#2b2b2e" />
           <rect x="123" y="390" width="26" height="6" rx="3" fill="#2b2b2e" />
-          <!-- brazos -->
           <path d="M89 152 C80 180 76 210 76 244 L90 246 C92 214 96 188 100 166 Z" fill="url(#jacketGrad)"
             stroke="#d4d5da" stroke-width=".8" />
           <path d="M153 152 C162 180 166 210 166 244 L152 246 C150 214 146 188 142 166 Z" fill="url(#jacketGrad)"
             stroke="#d4d5da" stroke-width=".8" />
           <circle cx="83" cy="250" r="6" fill="#d9b393" />
           <circle cx="159" cy="250" r="6" fill="#d9b393" />
-          <!-- saco -->
-          <path d="M90 150 C98 143 109 140 121 140 C133 140 144 143 152 150 L156 262 C146 270 134 272 121 272 C108 272 96 270 86 262 Z"
+          <path
+            d="M90 150 C98 143 109 140 121 140 C133 140 144 143 152 150 L156 262 C146 270 134 272 121 272 C108 272 96 270 86 262 Z"
             fill="url(#jacketGrad)" stroke="#d4d5da" stroke-width=".8" />
-          <!-- camisa y chaleco -->
           <path d="M110 141 L132 141 L121 214 Z" fill="#ffffff" stroke="#e1e2e6" stroke-width=".6" />
           <g fill="#c4c6cb">
             <circle cx="121" cy="186" r="1.6" />
             <circle cx="121" cy="196" r="1.6" />
             <circle cx="121" cy="206" r="1.6" />
           </g>
-          <!-- solapas plata -->
           <path d="M110 141 L96 152 L104 168 L98 174 L121 216 Z" fill="#b9bcc2" />
           <path d="M132 141 L146 152 L138 168 L144 174 L121 216 Z" fill="#a9acb2" />
-          <!-- botón y bolsillos -->
           <circle cx="121" cy="226" r="2" fill="#c4c6cb" />
           <rect x="97" y="236" width="14" height="2" rx="1" fill="#c4c6cb" />
           <rect x="131" y="236" width="14" height="2" rx="1" fill="#c4c6cb" />
-          <!-- pañuelo -->
           <path d="M134 178 L146 176 L144 172 L140 175 L137 171 Z" fill="#d293a2" />
-          <!-- moño plata -->
           <path d="M121 146 L111 141 L111 151 Z" fill="#9fa2a8" />
           <path d="M121 146 L131 141 L131 151 Z" fill="#9fa2a8" />
           <circle cx="121" cy="146" r="2.2" fill="#8a8d93" />
-          <!-- cuello y cabeza -->
           <rect x="116" y="124" width="10" height="16" fill="#d9b393" />
           <ellipse cx="121" cy="106" rx="17" ry="20" fill="#e2bfa0" />
           <path d="M104 104 C102 86 112 80 121 80 C132 80 140 86 138 104 C134 94 126 92 118 93 C112 94 106 98 104 104 Z"
             fill="#2b2220" />
 
-          <!-- ===== NOVIA ===== -->
-          <!-- velo -->
+          <!-- NOVIA -->
           <path d="M190 92 C176 130 166 220 160 340 L196 300 L240 340 C232 220 222 130 210 92 Z" fill="#ffffff"
             opacity=".55" stroke="#dcdde1" stroke-width=".6" />
-          <!-- falda -->
           <path d="M186 196 C176 262 160 340 148 396 L256 396 C244 340 228 262 218 196 Z" fill="url(#gownGrad)"
             stroke="#dcdde1" stroke-width=".8" />
           <path d="M196 214 C192 280 186 340 182 394 M208 214 C212 280 220 340 226 394" stroke="#e6e3df"
             stroke-width="1" fill="none" />
-          <!-- corpiño -->
           <path d="M188 148 C194 144 210 144 216 148 L219 200 L185 200 Z" fill="#ffffff" stroke="#dcdde1"
             stroke-width=".8" />
           <path d="M184 198 L220 198" stroke="#e8b9c3" stroke-width="3" />
-          <!-- brazos -->
           <path d="M188 150 C180 170 180 196 192 214" stroke="#e2bfa0" stroke-width="6" fill="none"
             stroke-linecap="round" />
           <path d="M216 150 C224 170 224 196 212 214" stroke="#e2bfa0" stroke-width="6" fill="none"
             stroke-linecap="round" />
-          <!-- cuello y cabeza -->
           <rect x="197" y="124" width="10" height="22" fill="#d9b393" />
           <ellipse cx="202" cy="108" rx="16" ry="19" fill="#e2bfa0" />
           <path d="M186 110 C182 88 192 80 202 80 C214 80 222 88 218 110 C214 98 208 94 202 94 C194 94 188 100 186 110 Z"
             fill="#3a2a26" />
           <circle cx="202" cy="78" r="9" fill="#3a2a26" />
-          <!-- tiara de nube -->
           <g fill="#ffffff" stroke="#c8cacf" stroke-width=".4">
             <circle cx="194" cy="84" r="1.6" />
             <circle cx="198" cy="82" r="1.6" />
@@ -1488,108 +2053,226 @@
             <circle cx="206" cy="82" r="1.6" />
             <circle cx="210" cy="84" r="1.6" />
           </g>
-
-          <!-- ramo: rosa palo, gris, carbón, marfil y nube -->
-          <g>
-            <path d="M198 230 L196 262 M204 230 L206 262" stroke="#8a8d93" stroke-width="1.4" />
-            <path d="M200 236 C196 252 194 262 196 270 M204 236 C208 252 210 262 208 270" stroke="#f3ede4"
-              stroke-width="2" fill="none" />
-            <circle cx="186" cy="214" r="9" fill="#3a3b3f" />
-            <circle cx="186" cy="214" r="4.5" fill="#1c1c1f" />
-            <circle cx="218" cy="214" r="8.5" fill="#8a8d93" />
-            <circle cx="218" cy="214" r="4.2" fill="#6b6e74" />
-            <circle cx="202" cy="204" r="9.5" fill="#e8b9c3" />
-            <circle cx="202" cy="204" r="5" fill="#d293a2" />
-            <circle cx="194" cy="224" r="9" fill="#f3ede4" stroke="#d8d2ca" stroke-width=".6" />
-            <circle cx="194" cy="224" r="4.2" fill="#e6ded3" />
-            <circle cx="211" cy="225" r="9" fill="#f0c9d1" />
-            <circle cx="211" cy="225" r="4.4" fill="#d293a2" />
-            <circle cx="202" cy="232" r="6.5" fill="#b9bcc2" />
-            <circle cx="202" cy="232" r="3" fill="#9fa2a8" />
-            <g fill="#ffffff" stroke="#b9bcc2" stroke-width=".4">
-              <circle cx="178" cy="204" r="1.8" />
-              <circle cx="182" cy="198" r="1.5" />
-              <circle cx="226" cy="204" r="1.8" />
-              <circle cx="222" cy="198" r="1.5" />
-              <circle cx="180" cy="228" r="1.6" />
-              <circle cx="226" cy="228" r="1.6" />
-              <circle cx="194" cy="196" r="1.4" />
-              <circle cx="212" cy="196" r="1.4" />
-              <circle cx="202" cy="242" r="1.5" />
-            </g>
-          </g>
+          <use href="#ramo" />
         </g>
       </svg>
+
+      <img class="foto-img" src="fotos/foto-1.jpg" alt="Pilly y Anabel" onload="this.classList.add('ok')">
+      <svg class="tear bottom" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true"></svg>
     </section>
 
-    <section class="rsvp sr sr-fade" id="rsvpSection">
-      <div class="rsvp-panel" id="rsvpPanel">
-        <div class="rsvp-panel-inner">
-          <div class="rsvp-title">
-            <svg class="rsvp-cap" viewBox="0 0 52 34" fill="none">
-              <circle cx="20" cy="20" r="11" stroke="#e8b9c3" stroke-width="1.8" />
-              <circle cx="32" cy="20" r="11" stroke="#b9bcc2" stroke-width="1.8" />
-            </svg>
-            R.S.V.P.
-          </div>
-          <div class="rsvp-deadline">Por favor confirma tu asistencia</div>
-          <p class="lede">Tu lugar en nuestra celebración te espera — solo necesitamos saber si vienes.</p>
+    <!-- Intro, nombres y fecha -->
+    <section class="sec intro">
+      <svg class="sprig r" viewBox="0 0 220 150">
+        <use href="#ramita" width="220" height="150" />
+      </svg>
 
-          <div id="nota-adultos"
-            style="display: none; margin-top: 24px; padding: 16px 20px; border: 1px solid rgba(232, 185, 195, 0.5); background: rgba(232, 185, 195, 0.08); border-radius: 2px;">
-            <div
-              style="font-family: 'EB Garamond', serif; font-variant: small-caps; letter-spacing: 0.1em; font-size: 14px; color: var(--rosa); margin-bottom: 6px;">
-              Nota Importante</div>
-            <p
-              style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--marfil); line-height: 1.4;">
-              Para disfrutar plenamente de la celebración, respetuosamente informamos que la recepción será
-              <strong>exclusivamente para adultos</strong>.
-              <br>
-              <span
-                style="font-size: 15px; color: var(--plata); font-style: italic; display: inline-block; margin-top: 4px;">Agradecemos
-                su amable comprensión.</span>
-            </p>
-          </div>
+      <p class="intro-text sc sr">Con inmensa alegría y el corazón agradecido, junto a nuestras familias, te invitamos
+        a compartir la celebración de nuestro amor al unir nuestras vidas en matrimonio.</p>
+      <div class="divider sr"><svg viewBox="0 0 10 9"><use href="#heart" fill="#9d5f6f" /></svg></div>
 
-          <form id="rsvpForm" novalidate>
-            <div class="field">
-              <label for="fullname">Nombre completo</label>
-              <input type="text" id="fullname" name="fullname" placeholder="Escribe tu nombre" autocomplete="name">
-              <div class="error" id="nameError">Por favor escribe tu nombre.</div>
-            </div>
+      <h1 class="nombres script sr">Pilly<span class="amp">&amp;</span>Anabel</h1>
+      <div class="nombres-full sc sr">Pilly Cano · Anabel Baltazar</div>
 
-            <div class="field">
-              <label>¿Asistirás?</label>
-              <div class="pills" role="group" aria-label="¿Asistirás?">
-                <button type="button" class="pill" id="pillYes" aria-pressed="false">Sí, asistiré</button>
-                <button type="button" class="pill" id="pillNo" aria-pressed="false">No podré ir</button>
-              </div>
-            </div>
+      <p class="honor sc sr">Tenemos el honor de invitarte<br>a nuestra boda</p>
 
-            <button type="submit" class="submit-btn">Confirmar asistencia</button>
-            <div class="form-note" id="formNote">Al confirmar se abrirá WhatsApp con tu respuesta lista para
-              enviar.</div>
-          </form>
+      <div class="fecha sr">
+        <div class="f-mes sc">Noviembre</div>
+        <div class="f-row">
+          <span class="f-side sc">Sábado</span>
+          <span class="f-dia">21</span>
+          <span class="f-side sc">2026</span>
+        </div>
+      </div>
 
-          <div class="thanks" id="thanksPanel">
-            <div class="headline" id="thanksHeadline">¡Gracias por confirmar!</div>
-            <p id="thanksBody">Te esperamos el 21 de noviembre.</p>
-          </div>
+      <div class="countdown sr" id="countdown">
+        <div class="cbox">
+          <div class="num" id="cd-days">00</div>
+          <div class="lab sc">Días</div>
+        </div>
+        <div class="cbox">
+          <div class="num" id="cd-hours">00</div>
+          <div class="lab sc">Horas</div>
+        </div>
+        <div class="cbox">
+          <div class="num" id="cd-mins">00</div>
+          <div class="lab sc">Min</div>
+        </div>
+        <div class="cbox">
+          <div class="num" id="cd-secs">00</div>
+          <div class="lab sc">Seg</div>
         </div>
       </div>
     </section>
 
-    <footer class="sr sr-fade">
-      <svg class="branch bl small" viewBox="0 0 90 110">
-        <use href="#branchShape" transform="scale(0.6)" />
+    <!-- Ubicación -->
+    <section class="sec evento sr">
+      <div class="ev-hora">3:00 PM</div>
+      <div class="ev-tit sc">Ceremonia y recepción</div>
+      <div class="ev-lugar sc">Casa de la novia</div>
+      <div class="ev-dir">119 June Ave · Hueytown, AL 35023</div>
+      <a class="btn-pill" href="https://maps.app.goo.gl/X8YMzi8Hotf1f7np6" target="_blank" rel="noopener">Ver
+        ubicación<svg class="tap" viewBox="0 0 26 26"><use href="#hand" /></svg></a>
+      <div class="divider"><svg viewBox="0 0 10 9"><use href="#heart" fill="#9d5f6f" /></svg></div>
+    </section>
+
+    <!-- Itinerario -->
+    <div class="itin-title sc sr">Itinerario de la celebración</div>
+    <section class="acuarela" id="itinerario">
+      <svg class="tear top" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <ul class="timeline" id="timeline">
+        <li class="tl-item">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linejoin="round">
+            <circle cx="10.5" cy="17" r="6.5" />
+            <circle cx="17.5" cy="17" r="6.5" />
+            <path d="M15.5 7 L17.5 4 L19.5 7 L17.5 9.5 Z" />
+          </svg>
+          <span class="tl-dot"></span>
+          <div><div class="tl-hora sc">3:00 pm</div><div class="tl-que">Ceremonia</div></div>
+        </li>
+        <li class="tl-item">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linejoin="round"
+            stroke-linecap="round">
+            <path d="M4 6h7l-.8 6a2.7 2.7 0 0 1-5.4 0Z M7.5 14.6v7.4 M5 22h5" />
+            <path d="M17 6h7l-.8 6a2.7 2.7 0 0 1-5.4 0Z M20.5 14.6v7.4 M18 22h5" />
+            <path d="M14 2.5v3 M12.5 4h3" />
+          </svg>
+          <span class="tl-dot"></span>
+          <div><div class="tl-hora sc">4:00 pm</div><div class="tl-que">Brindis de bienvenida</div></div>
+        </li>
+        <li class="tl-item">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M14 23 C6 17 3 13.5 3 10 A4.6 4.6 0 0 1 14 7.6 A4.6 4.6 0 0 1 25 10 C25 13.5 22 17 14 23Z" />
+          </svg>
+          <span class="tl-dot"></span>
+          <div><div class="tl-hora sc">4:30 pm</div><div class="tl-que">Entrada de los novios</div></div>
+        </li>
+        <li class="tl-item">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linecap="round">
+            <circle cx="14" cy="15" r="7.5" />
+            <circle cx="14" cy="15" r="4.5" />
+            <path d="M3.5 6v5a1.3 1.3 0 0 0 2.6 0V6 M4.8 12v11" />
+            <path d="M24 6c-1.6 2.2-1.6 6.2 0 8.2V23" />
+          </svg>
+          <span class="tl-dot"></span>
+          <div><div class="tl-hora sc">5:00 pm</div><div class="tl-que">Cena</div></div>
+        </li>
+        <li class="tl-item">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linecap="round">
+            <path d="M14 2v5" />
+            <circle cx="14" cy="15.5" r="8" />
+            <path d="M6 15.5h16 M14 7.5v16 M8 11c3.6 1.8 8.4 1.8 12 0 M8 20c3.6-1.8 8.4-1.8 12 0" />
+          </svg>
+          <span class="tl-dot"></span>
+          <div><div class="tl-hora sc">6:30 pm</div><div class="tl-que">¡A bailar!</div></div>
+        </li>
+        <li class="tl-item">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M18 4 A10 10 0 1 0 24.5 19.5 A8 8 0 0 1 18 4 Z" />
+            <path d="M22 6.5l.7 1.5 1.5.7-1.5.7-.7 1.5-.7-1.5-1.5-.7 1.5-.7z" />
+          </svg>
+          <span class="tl-dot"></span>
+          <div><div class="tl-hora sc">10:00 pm</div><div class="tl-que">Despedida</div></div>
+        </li>
+      </ul>
+      <svg class="tear bottom" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true"></svg>
+    </section>
+
+    <!-- Regalo -->
+    <section class="sec info sr">
+      <svg class="sprig r" viewBox="0 0 220 150">
+        <use href="#ramita" width="220" height="150" />
       </svg>
-      <svg class="branch br small" viewBox="0 0 90 110">
-        <use href="#branchShape" transform="scale(0.6)" />
+      <div class="info-row">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linejoin="round">
+          <rect x="5" y="15" width="30" height="20" />
+          <rect x="3" y="10" width="34" height="6" />
+          <path d="M20 10v25" />
+          <path d="M20 10c-3-6-10-6-9-2 .6 2.2 5 2 9 2zM20 10c3-6 10-6 9-2-.6 2.2-5 2-9 2z" />
+        </svg>
+        <div>
+          <div class="info-tit sc">Sugerencia de regalo</div>
+          <div class="info-txt">Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, una
+            lluvia de sobres será recibida con mucho cariño.</div>
+          <div class="info-sub sc">Lluvia de sobres
+            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="#3a3b3f" stroke-width="1.1">
+              <rect x="1" y="1" width="20" height="14" />
+              <path d="M1 1l10 8 10-8" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="divider"><svg viewBox="0 0 10 9"><use href="#heart" fill="#9d5f6f" /></svg></div>
+    </section>
+
+    <!-- Confirmación -->
+    <section class="sec info rsvp sr" id="rsvpSection">
+      <div class="info-row">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#3a3b3f" stroke-width="1.2" stroke-linejoin="round">
+          <path d="M20 4a16 16 0 0 0-13.8 24L4 36l8.3-2.2A16 16 0 1 0 20 4z" />
+          <path
+            d="M14.5 12.5c.5-.5 1.4-.4 1.7.2l1.4 3c.2.5.1 1-.3 1.4l-1 1c.9 2 2.5 3.6 4.5 4.6l1-1c.4-.4 1-.5 1.4-.3l3 1.4c.6.3.8 1.1.3 1.7-1.2 1.6-3 2.2-5 1.4-3.6-1.4-6.6-4.4-8-8-.8-2-.2-3.8 1-5.4z" />
+        </svg>
+        <div>
+          <div class="info-tit sc">Confirmación</div>
+          <div class="info-txt">Por favor confírmanos tu asistencia, nos ayudará mucho a preparar todo con cariño.</div>
+        </div>
+      </div>
+
+      <form id="rsvpForm" novalidate>
+        <div class="field">
+          <label for="fullname" class="sc">Nombre completo</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Escribe tu nombre" autocomplete="name">
+          <div class="error" id="nameError">Por favor escribe tu nombre.</div>
+        </div>
+
+        <div class="field">
+          <label class="sc">¿Asistirás?</label>
+          <div class="pills" role="group" aria-label="¿Asistirás?">
+            <button type="button" class="pill" id="pillYes" aria-pressed="false">Sí, asistiré</button>
+            <button type="button" class="pill" id="pillNo" aria-pressed="false">No podré ir</button>
+          </div>
+        </div>
+
+        <div class="submit-wrap">
+          <button type="submit" class="btn-pill">Enviar mensaje<svg class="tap" viewBox="0 0 26 26"><use
+                href="#hand" /></svg></button>
+        </div>
+        <div class="form-note" id="formNote">Al confirmar se abrirá WhatsApp con tu respuesta lista para enviar.</div>
+      </form>
+
+      <div class="thanks" id="thanksPanel">
+        <div class="headline" id="thanksHeadline">¡Gracias por confirmar!</div>
+        <p id="thanksBody">Te esperamos el 21 de noviembre.</p>
+      </div>
+    </section>
+
+    <!-- Solo adultos (visible con ?vip en el enlace) -->
+    <section class="sec" id="nota-adultos">
+      <div class="info-tit sc">Solo adultos, por favor</div>
+      <p>Con todo cariño les pedimos comprender que nuestra celebración será exclusivamente para adultos.</p>
+    </section>
+
+    <!-- Cierre -->
+    <section class="sec cierre sr">
+      <svg class="sprig-h" viewBox="0 0 220 150">
+        <use href="#ramita" width="220" height="150" />
       </svg>
-      <div class="foot-year">2026</div>
-      <div class="foot-tag script">Y así comienza nuestro para siempre</div>
-      <div class="foot-signoff">Con amor, Pilly &amp; Anabel</div>
-      <div class="foot-mono">P · A — HUEYTOWN, ALABAMA</div>
+      <p class="cierre-txt sc">Esperamos con mucha ilusión<br>celebrar contigo</p>
+    </section>
+
+    <!-- Foto 2: si existe fotos/foto-2.jpg se muestra; si no, el ramo -->
+    <section class="foto-band final">
+      <svg class="tear top" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <svg class="ramo-final" viewBox="168 188 68 86" aria-hidden="true">
+        <use href="#ramo" />
+      </svg>
+      <img class="foto-img" src="fotos/foto-2.jpg" alt="Pilly y Anabel" onload="this.classList.add('ok')">
+    </section>
+
+    <footer>
+      <div class="foot-mono">P<span class="bar"></span>A</div>
+      <div class="foot-tag sc">21 · 11 · 2026 — Hueytown, Alabama</div>
     </footer>
 
   </main>
@@ -1604,26 +2287,42 @@
     var skipBtn = document.getElementById('skipBtn');
     var envelope = document.getElementById('envelope');
     var waxSeal = document.getElementById('waxSeal');
-    var goldenFlash = document.getElementById('goldenFlash');
+    var openFlash = document.getElementById('openFlash');
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Spawn wax break particles
+    // Bordes de papel rasgado: genera un contorno irregular distinto para cada banda
+    document.querySelectorAll('.tear').forEach(function (svg, k) {
+      var seed = 17 + k * 131;
+      function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+      function edge(min, max) {
+        var d = 'M0 0 H400 V' + (min + rnd() * (max - min)).toFixed(1);
+        for (var x = 400; x > 0;) {
+          x -= 5 + rnd() * 11;
+          d += ' L' + Math.max(x, 0).toFixed(1) + ' ' + (min + rnd() * (max - min)).toFixed(1);
+        }
+        return d + ' Z';
+      }
+      svg.innerHTML = '<path d="' + edge(10, 25) + '" fill="#ffffff" opacity=".85"/>' +
+        '<path d="' + edge(4, 17) + '" fill="#fbf8f3"/>';
+    });
+
     function spawnParticles() {
       var rect = waxSeal.getBoundingClientRect();
       var cx = rect.left + rect.width / 2;
       var cy = rect.top + rect.height / 2;
-      for (var i = 0; i < 14; i++) {
+      var colors = ['#d9b66a', '#f2d98c', '#b58a3e', '#f2cbd7', '#f8e4e8', '#fff0b9', '#ffffff'];
+      for (var i = 0; i < 20; i++) {
         var p = document.createElement('div');
         p.className = 'wax-particle';
-        var angle = (Math.PI * 2 / 14) * i + (Math.random() - .5) * .5;
-        var dist = 50 + Math.random() * 80;
+        var angle = (Math.PI * 2 / 20) * i + (Math.random() - .5) * .4;
+        var dist = 55 + Math.random() * 95;
         p.style.left = cx + 'px';
         p.style.top = cy + 'px';
         p.style.width = (4 + Math.random() * 5) + 'px';
         p.style.height = p.style.width;
         p.style.setProperty('--px', Math.cos(angle) * dist + 'px');
         p.style.setProperty('--py', Math.sin(angle) * dist + 'px');
-        p.style.background = ['#e8b9c3', '#d293a2', '#b9bcc2', '#f6e1e5'][Math.floor(Math.random() * 4)];
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
         document.body.appendChild(p);
         requestAnimationFrame(function (el) {
           return function () { el.classList.add('fly'); };
@@ -1639,42 +2338,38 @@
       animate = animate && !reduceMotion;
 
       if (animate) {
-        // Stage 1: Seal press effect
+        // Stage 1: Tactile seal press
         waxSeal.classList.add('pressed');
 
-        // Stage 2: Break the seal with particles (after 200ms)
+        // Stage 2: Break the seal & unfold the 4 flaps (after 180ms)
         setTimeout(function () {
           waxSeal.classList.remove('pressed');
           waxSeal.classList.add('breaking');
           spawnParticles();
-        }, 200);
-
-        // Stage 3: Open the flap (after 500ms)
-        setTimeout(function () {
           envelope.classList.add('opening');
-        }, 500);
+        }, 180);
 
-        // Stage 4: Flash (after 900ms)
+        // Stage 3: Soft ambient flash illumination (after 1800ms)
         setTimeout(function () {
-          goldenFlash.classList.add('show');
-        }, 900);
+          openFlash.classList.add('show');
+        }, 1800);
 
-        // Stage 5: Slide envelope away + start fading overlay (after 1200ms)
+        // Stage 4: Slide envelope away gracefully (after 2200ms)
         setTimeout(function () {
           document.querySelector('.seal-wrap').classList.add('opening');
-        }, 1200);
+        }, 2200);
 
-        // Stage 6: Hide overlay fully (after 1800ms)
+        // Stage 5: Hide overlay and reveal main invitation (after 2800ms)
         setTimeout(function () {
           overlay.classList.add('hidden');
           document.body.classList.remove('locked');
-          goldenFlash.classList.remove('show');
-        }, 1800);
+          openFlash.classList.remove('show');
+        }, 2800);
 
-        // Stage 7: Clean up flash (after 2500ms)
+        // Stage 6: Clean up flash element (after 3500ms)
         setTimeout(function () {
-          goldenFlash.style.display = 'none';
-        }, 2500);
+          openFlash.style.display = 'none';
+        }, 3500);
 
       } else {
         overlay.classList.add('hidden');
@@ -1682,11 +2377,11 @@
       }
 
       setTimeout(function () {
-        document.getElementById('heroBlock').classList.add('in');
         document.querySelectorAll('.hero-el').forEach(function (el, i) {
-          setTimeout(function () { el.classList.add('in'); }, i * 140);
+          setTimeout(function () { el.classList.add('in'); }, i * 160);
         });
-      }, animate ? 1600 : 50);
+        startReveals();
+      }, animate ? 2600 : 50);
     }
 
     sealBtn.addEventListener('click', function () { openInvitation(true); });
@@ -1710,56 +2405,56 @@
     tickCountdown();
     setInterval(tickCountdown, 1000);
 
-    // Prepare the arch line-draw (measure path length up front)
+    // Arco que se dibuja alrededor de los novios
     var figureOutline = document.getElementById('figureOutline');
     var outlineLength = figureOutline.getTotalLength();
     figureOutline.style.strokeDasharray = outlineLength;
     figureOutline.style.strokeDashoffset = outlineLength;
     figureOutline.style.transition = 'none';
 
-    function drawSilhouette() {
+    function drawCouple() {
       if (reduceMotion) {
         figureOutline.style.strokeDashoffset = 0;
         document.getElementById('figureFill').classList.add('in');
-        document.querySelectorAll('.figure-glow').forEach(function (g) { g.classList.add('in'); });
         return;
       }
       figureOutline.style.transition = 'stroke-dashoffset 1.8s ' + getComputedStyle(document.documentElement).getPropertyValue('--ease-flow');
       requestAnimationFrame(function () { figureOutline.style.strokeDashoffset = 0; });
       setTimeout(function () {
         document.getElementById('figureFill').classList.add('in');
-        document.querySelectorAll('.figure-glow').forEach(function (g) { g.classList.add('in'); });
-      }, 950);
+      }, 700);
     }
 
-    // Scroll-triggered reveals
-    var srEls = document.querySelectorAll('.sr');
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-            if (entry.target.id === 'detailsSection') {
-              entry.target.querySelectorAll('.detail-row').forEach(function (row, i) {
-                setTimeout(function () { row.classList.add('in'); }, i * 150);
-              });
+    function showTimeline() {
+      var tl = document.getElementById('timeline');
+      tl.classList.add('in');
+      tl.querySelectorAll('.tl-item').forEach(function (item, i) {
+        setTimeout(function () { item.classList.add('in'); }, reduceMotion ? 0 : 200 + i * 180);
+      });
+    }
+
+    function onReveal(el) {
+      el.classList.add('in');
+      if (el.id === 'fotoBand') drawCouple();
+      if (el.id === 'itinerario') showTimeline();
+    }
+
+    // Scroll-triggered reveals (arrancan al abrir el sobre)
+    function startReveals() {
+      var els = document.querySelectorAll('.sr:not(.hero-el), #itinerario');
+      if ('IntersectionObserver' in window && !reduceMotion) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              onReveal(entry.target);
+              io.unobserve(entry.target);
             }
-            if (entry.target.id === 'silhouetteSection') {
-              drawSilhouette();
-            }
-            if (entry.target.id === 'rsvpSection') {
-              document.getElementById('rsvpPanel').classList.add('in');
-            }
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
-      srEls.forEach(function (el) { io.observe(el); });
-    } else {
-      srEls.forEach(function (el) { el.classList.add('in'); });
-      document.querySelectorAll('.detail-row').forEach(function (row) { row.classList.add('in'); });
-      document.getElementById('rsvpPanel').classList.add('in');
-      drawSilhouette();
+          });
+        }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      } else {
+        els.forEach(onReveal);
+      }
     }
 
     // RSVP interactivity
@@ -1817,13 +2512,10 @@
       }
     });
 
-    // Mostrar sección de adultos si la URL tiene el parámetro vip
+    // Mostrar nota de solo adultos si la URL tiene el parámetro vip
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('vip')) {
-      var notaAdultos = document.getElementById('nota-adultos');
-      if (notaAdultos) {
-        notaAdultos.style.display = 'block';
-      }
+      document.getElementById('nota-adultos').style.display = 'block';
     }
   </script>
 
