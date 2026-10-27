@@ -2348,7 +2348,8 @@
   <script>
     // Número de WhatsApp para confirmaciones (solo dígitos, con código de país, ej. '12055551234').
     // Si se deja vacío, WhatsApp abre para que el invitado elija a quién enviar el mensaje.
-    var WA_NUMBER = '';
+    var WA_NUMBER = '12678847127';
+    var WA_DISPLAY = '+1 (267) 884-7127';
 
     var overlay = document.getElementById('seal-overlay');
     var sealBtn = document.getElementById('sealBtn');
@@ -2540,7 +2541,7 @@
 
     if (WA_NUMBER) {
       document.getElementById('formNote').innerHTML += ' También puedes escribir directamente al <a href="https://wa.me/' +
-        WA_NUMBER + '" target="_blank" rel="noopener">+' + WA_NUMBER + '</a>.';
+        WA_NUMBER + '" target="_blank" rel="noopener">' + WA_DISPLAY + '</a>.';
     }
 
     var form = document.getElementById('rsvpForm');
